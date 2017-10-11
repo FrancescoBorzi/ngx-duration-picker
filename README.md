@@ -6,6 +6,8 @@ A reusable [Angular](angular.io) duration-picker component that works with [ISO_
 
 Requires [Bootstrap 3](https://getbootstrap.com/docs/3.3/), css only (no Bootstrap JS or jQuery needed).
 
+**[DEMO](https://embed.plnkr.co/1dAIGrGqbcfrNVqs4WwW/)**
+
 ## Installation
 
 - Run:
