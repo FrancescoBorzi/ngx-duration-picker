@@ -1,0 +1,137 @@
+<table>
+  <tbody>
+
+  <tr *ngIf="config.showLetters">
+    <td *ngIf="config.showYears">Y</td>
+    <td *ngIf="config.showMonths">M</td>
+    <td *ngIf="config.showWeeks">W</td>
+    <td *ngIf="config.showDays">D</td>
+    <td *ngIf="config.showHours">H</td>
+    <td *ngIf="config.showMinutes">M</td>
+    <td *ngIf="config.showSeconds">S</td>
+  </tr>
+
+  <tr *ngIf="config.showButtons">
+    <td *ngIf="config.showYears">
+      <a class="btn btn-link" id="dp-years-up" (click)="years = years + 1">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+    </td>
+
+    <td *ngIf="config.showMonths">
+      <a class="btn btn-link" id="dp-months-up" (click)="months = months + 1">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+    </td>
+
+    <td *ngIf="config.showWeeks">
+      <a class="btn btn-link" id="dp-weeks-up" (click)="weeks = weeks + 1">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+    </td>
+
+    <td *ngIf="config.showDays">
+      <a class="btn btn-link" id="dp-days-up" (click)="days = days + 1">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+    </td>
+
+    <td *ngIf="config.showHours">
+      <a class="btn btn-link" id="dp-hours-up" (click)="hours = hours + 1">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+    </td>
+
+    <td *ngIf="config.showMinutes">
+      <a class="btn btn-link" id="dp-minutes-up" (click)="minutes = minutes + 1">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+    </td>
+
+    <td *ngIf="config.showSeconds">
+      <a class="btn btn-link" id="dp-seconds-up" (click)="seconds = seconds + 1">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+    </td>
+  </tr>
+
+  <tr>
+    <td *ngIf="config.showYears">
+      <input placeholder="Y" id="dp-years" [(ngModel)]="years">
+    </td>
+
+    <td *ngIf="config.showMonths">
+      <input placeholder="M" id="dp-months" [(ngModel)]="months">
+    </td>
+
+    <td *ngIf="config.showWeeks">
+      <input placeholder="W" id="dp-weeks" [(ngModel)]="weeks">
+    </td>
+
+    <td *ngIf="config.showDays">
+      <input placeholder="D" id="dp-days" [(ngModel)]="days">
+    </td>
+
+    <td *ngIf="config.showHours">
+      <input placeholder="H" id="dp-hours" [(ngModel)]="hours">
+    </td>
+
+    <td *ngIf="config.showMinutes">
+      <input placeholder="M" id="dp-minutes" [(ngModel)]="minutes">
+    </td>
+
+    <td *ngIf="config.showSeconds">
+      <input placeholder="S" id="dp-seconds" [(ngModel)]="seconds">
+    </td>
+
+    <td *ngIf="config.showPreview">
+      <span id="dp-duration-value">{{ value }}</span>
+    </td>
+  </tr>
+
+  <tr *ngIf="config.showButtons">
+    <td *ngIf="config.showYears">
+      <a class="btn btn-link" id="dp-years-down" (click)="years = years - 1">
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </a>
+    </td>
+
+    <td *ngIf="config.showMonths">
+      <a class="btn btn-link" id="dp-months-down" (click)="months = months - 1">
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </a>
+    </td>
+
+    <td *ngIf="config.showWeeks">
+      <a class="btn btn-link" id="dp-weeks-down" (click)="weeks = weeks - 1">
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </a>
+    </td>
+
+    <td *ngIf="config.showDays">
+      <a class="btn btn-link" id="dp-days-down" (click)="days = days - 1">
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </a>
+    </td>
+
+    <td *ngIf="config.showHours">
+      <a class="btn btn-link" id="dp-hours-down" (click)="hours = hours - 1">
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </a>
+    </td>
+
+    <td *ngIf="config.showMinutes">
+      <a class="btn btn-link" id="dp-minutes-down" (click)="minutes = minutes - 1">
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </a>
+    </td>
+
+    <td *ngIf="config.showSeconds">
+      <a class="btn btn-link" id="dp-seconds-down" (click)="seconds = seconds - 1">
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </a>
+    </td>
+  </tr>
+
+  </tbody>
+</table>
