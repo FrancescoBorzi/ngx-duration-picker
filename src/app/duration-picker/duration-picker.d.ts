@@ -9,4 +9,5 @@ export interface DurationPickerOptions {
   showHours: boolean;
   showMinutes: boolean;
   showSeconds: boolean;
+  zeroValue: string | null;
 }

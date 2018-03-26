@@ -25,7 +25,7 @@ describe('DurationPickerComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('generate() should correctly work', () => {
+  it('generate() should correctly generate the duration values', () => {
     set(component, 1, 2, 3, 4, 5, 6, 7);
     expect(component.generate()).toBe('P1Y2M3W4DT5H6M7S');
 
@@ -55,9 +55,18 @@ describe('DurationPickerComponent', () => {
 
     set(component, 0, 9, 0, 0, 0, 10, 0);
     expect(component.generate()).toBe('P9MT10M');
+  });
 
-    set(component, 'wrong', 'wrong', 'wrong', 'wrong', 'wrong', 'wrong', 'wrong');
+  it('generate() should correctly set the zero value according to the configuration', () => {
+    set(component, 0, 0, 0, 0, 0, 0, 0);
+
+    expect(component.generate()).toBe('PT0S');
+
+    component.config.zeroValue = null;
     expect(component.generate()).toBe(null);
+
+    component.config.zeroValue = 'myCustomValue';
+    expect(component.generate()).toBe('myCustomValue');
   });
 
   it('setting the options should correctly affect the configuration', () => {

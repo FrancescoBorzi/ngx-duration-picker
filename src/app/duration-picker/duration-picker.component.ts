@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DurationPickerOptions } from './duration-picker';
 
 @Component({
   selector: 'app-duration-picker',
@@ -24,7 +25,7 @@ export class DurationPickerComponent implements OnInit {
   private _minutes  = 0;
   private _seconds  = 0;
 
-  config = {
+  config: DurationPickerOptions = {
     showButtons : true,
     showPreview : true,
     showLetters : true,
@@ -35,6 +36,7 @@ export class DurationPickerComponent implements OnInit {
     showHours   : true,
     showMinutes : true,
     showSeconds : true,
+    zeroValue   : 'PT0S',
   };
 
   get years() { return this._years; }
@@ -90,6 +92,7 @@ export class DurationPickerComponent implements OnInit {
 
   ngOnInit() {
     this.parse();
+    this.emitNewValue();
   }
 
   parse() {
@@ -152,7 +155,7 @@ export class DurationPickerComponent implements OnInit {
 
     // if all values are empty, just output null
     if (output === 'P') {
-      output = null;
+      output = this.config.zeroValue;
     }
 
     return output;
