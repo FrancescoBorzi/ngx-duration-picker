@@ -92,7 +92,7 @@ export class DurationPickerComponent implements OnInit {
 
   ngOnInit() {
     this.parse();
-    this.emitNewValue();
+    this.value = this.generate();
   }
 
   parse() {
