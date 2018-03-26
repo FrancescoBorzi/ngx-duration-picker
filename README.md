@@ -49,32 +49,37 @@ you can pass specify some options by binding `[options]` to your configuration o
 
 ### Available options
 
+#### zeroValue
+String or Null, default `'PT0S'`.
+
+Value to be used when the duration is 0. Since [the specification](https://en.wikipedia.org/wiki/ISO_8601#Durations) says that `'PT0S'` or `'P0D'` are both valid, you are allowed to change this value. You can also pass just `null`.
+
 #### showButtons
-Boolean, default true. Shows the up and down buttons.
+Boolean, default `true`. Shows the up and down buttons.
 
 #### showPreview
-Boolean, default true. Shows a preview of the value.
+Boolean, default `true`. Shows a preview of the value.
 
 #### showLetters
-Boolean, default true. Shows the letters on top (Y, M, W, D, H, M, S)
+Boolean, default `true`. Shows the letters on top (Y, M, W, D, H, M, S)
 
 #### showYears
-Boolean, default true. Shows the years, when hidden it will be always considered as 0.
+Boolean, default `true`. Shows the years, when hidden it will be always considered as 0.
 
 #### showMonths
-Boolean, default true. Shows the months, when hidden it will be always considered as 0.
+Boolean, default `true`. Shows the months, when hidden it will be always considered as 0.
 
 #### showWeeks
-Boolean, default true. Shows the weeks, when hidden it will be always considered as 0.
+Boolean, default `true`. Shows the weeks, when hidden it will be always considered as 0.
 
 #### showDays
-Boolean, default true. Shows the days, when hidden it will be always considered as 0.
+Boolean, default `true`. Shows the days, when hidden it will be always considered as 0.
 
 #### showHours
-Boolean, default true. Shows the hours, when hidden it will be always considered as 0.
+Boolean, default `true`. Shows the hours, when hidden it will be always considered as 0.
 
 #### showMinutes
-Boolean, default true. Shows the minutes, when hidden it will be always considered as 0.
+Boolean, default `true`. Shows the minutes, when hidden it will be always considered as 0.
 
 #### showSeconds
-Boolean, default true. Shows the seconds, when hidden it will be always considered as 0.
+Boolean, default `true`. Shows the seconds, when hidden it will be always considered as 0.
