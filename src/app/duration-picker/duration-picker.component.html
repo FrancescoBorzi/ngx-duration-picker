@@ -57,31 +57,31 @@
 
   <tr>
     <td *ngIf="config.showYears">
-      <input type="number" placeholder="Y" id="dp-years" [(ngModel)]="years">
+      <input (blur)="onTouched()" type="number" placeholder="Y" id="dp-years" [(ngModel)]="years">
     </td>
 
     <td *ngIf="config.showMonths">
-      <input type="number" placeholder="M" id="dp-months" [(ngModel)]="months">
+      <input (blur)="onTouched()" type="number" placeholder="M" id="dp-months" [(ngModel)]="months">
     </td>
 
     <td *ngIf="config.showWeeks">
-      <input type="number" placeholder="W" id="dp-weeks" [(ngModel)]="weeks">
+      <input (blur)="onTouched()" type="number" placeholder="W" id="dp-weeks" [(ngModel)]="weeks">
     </td>
 
     <td *ngIf="config.showDays">
-      <input type="number" placeholder="D" id="dp-days" [(ngModel)]="days">
+      <input (blur)="onTouched()" type="number" placeholder="D" id="dp-days" [(ngModel)]="days">
     </td>
 
     <td *ngIf="config.showHours">
-      <input type="number" placeholder="H" id="dp-hours" [(ngModel)]="hours">
+      <input (blur)="onTouched()" type="number" placeholder="H" id="dp-hours" [(ngModel)]="hours">
     </td>
 
     <td *ngIf="config.showMinutes">
-      <input type="number" placeholder="M" id="dp-minutes" [(ngModel)]="minutes">
+      <input (blur)="onTouched()" type="number" placeholder="M" id="dp-minutes" [(ngModel)]="minutes">
     </td>
 
     <td *ngIf="config.showSeconds">
-      <input type="number" placeholder="S" id="dp-seconds" [(ngModel)]="seconds">
+      <input (blur)="onTouched()" type="number" placeholder="S" id="dp-seconds" [(ngModel)]="seconds">
     </td>
 
     <td *ngIf="config.showPreview">

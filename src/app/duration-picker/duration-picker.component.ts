@@ -1,18 +1,38 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
 import { DurationPickerOptions } from './duration-picker';
 
 @Component({
   selector: 'app-duration-picker',
   templateUrl: './duration-picker.component.html',
-  styleUrls: ['./duration-picker.component.css']
+  styleUrls: ['./duration-picker.component.css'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => DurationPickerComponent),
+      multi: true
+    }
+  ],
 })
-export class DurationPickerComponent implements OnInit {
+export class DurationPickerComponent implements OnInit, ControlValueAccessor {
 
   @Input() set options(options) {
     this.attachChanges(options);
   }
 
-  @Input() value: string;
+  _value: string;
+
+  get value(): string {
+    return this._value;
+  }
+
+  @Input()
+  set value(value: string) {
+    this._value = value;
+    this.parse();
+  }
+
   @Output() valueChange = new EventEmitter<string>();
 
   regex: RegExp = /^P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$/;
@@ -88,11 +108,28 @@ export class DurationPickerComponent implements OnInit {
     this.emitNewValue();
   }
 
+  onChange = (_: any) => {};
+  onTouched = () => {};
+
   constructor() { }
 
   ngOnInit() {
     this.parse();
     this.value = this.generate();
+  }
+
+  registerOnChange(fn) {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn) {
+    this.onTouched = fn;
+  }
+
+  writeValue(value) {
+    if (value) {
+      this.value = value;
+    }
   }
 
   parse() {
@@ -164,6 +201,8 @@ export class DurationPickerComponent implements OnInit {
   emitNewValue() {
     this.value = this.generate();
     this.valueChange.emit(this.value);
+    this.onTouched();
+    this.onChange(this.value);
   }
 
   // Attach all the changes received in the options object

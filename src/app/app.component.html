@@ -1,1 +1,44 @@
-<app-duration-picker [(value)]="myValue"></app-duration-picker>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="h1">Plain binding</div>
+
+      <app-duration-picker [(value)]="myValue"></app-duration-picker>
+
+      <div class="alert alert-info">
+        {{ myValue }}
+      </div>
+      <button (click)="myValue = 'P7Y3M2W4DT1H3M5S'" class="btn btn-info">Set to value 'P7Y3M2W4DT1H3M5S'</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="h1">Reactive Form</div>
+      <form [formGroup]="form">
+        <app-duration-picker [formControlName]="'myDurationControl'"></app-duration-picker>
+      </form>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="alert alert-info">
+          {{ this.form.get('myDurationControl').value }}
+        </div>
+        <button (click)="setControlToValue('P7Y3M2W4DT1H3M5S')" class="btn btn-info">Set to value 'P7Y3M2W4DT1H3M5S'</button>
+      </div>
+
+      <div class="col-xs-6">
+        <div class="alert alert-success">
+          {{ this.form.get('myDurationControl').touched ? 'Touched' : 'Untouched' }}
+        </div>
+        <button (click)="makeUntouched()" class="btn btn-success">Make untouched</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
