@@ -21,7 +21,7 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     this.attachChanges(options);
   }
 
-  _value: string;
+  private _value: string;
 
   get value(): string {
     return this._value;
@@ -34,6 +34,17 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
   }
 
   @Output() valueChange = new EventEmitter<string>();
+
+  private _disabled = false;
+
+  get disabled(): boolean {
+    return this._disabled;
+  }
+
+  @Input()
+  set disabled(disabled: boolean) {
+    this._disabled = disabled;
+  }
 
   regex: RegExp = /^P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$/;
 
@@ -130,6 +141,10 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     if (value) {
       this.value = value;
     }
+  }
+
+  setDisabledState(isDisabled: boolean) {
+    this.disabled = isDisabled;
   }
 
   parse() {

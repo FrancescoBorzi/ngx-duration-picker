@@ -13,43 +13,43 @@
 
   <tr *ngIf="config.showButtons">
     <td *ngIf="config.showYears">
-      <a class="btn btn-link" id="dp-years-up" (click)="years = years + 1">
+      <a class="btn btn-link" id="dp-years-up" (click)="years = years + 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-up"></span>
       </a>
     </td>
 
     <td *ngIf="config.showMonths">
-      <a class="btn btn-link" id="dp-months-up" (click)="months = months + 1">
+      <a class="btn btn-link" id="dp-months-up" (click)="months = months + 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-up"></span>
       </a>
     </td>
 
     <td *ngIf="config.showWeeks">
-      <a class="btn btn-link" id="dp-weeks-up" (click)="weeks = weeks + 1">
+      <a class="btn btn-link" id="dp-weeks-up" (click)="weeks = weeks + 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-up"></span>
       </a>
     </td>
 
     <td *ngIf="config.showDays">
-      <a class="btn btn-link" id="dp-days-up" (click)="days = days + 1">
+      <a class="btn btn-link" id="dp-days-up" (click)="days = days + 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-up"></span>
       </a>
     </td>
 
     <td *ngIf="config.showHours">
-      <a class="btn btn-link" id="dp-hours-up" (click)="hours = hours + 1">
+      <a class="btn btn-link" id="dp-hours-up" (click)="hours = hours + 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-up"></span>
       </a>
     </td>
 
     <td *ngIf="config.showMinutes">
-      <a class="btn btn-link" id="dp-minutes-up" (click)="minutes = minutes + 1">
+      <a class="btn btn-link" id="dp-minutes-up" (click)="minutes = minutes + 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-up"></span>
       </a>
     </td>
 
     <td *ngIf="config.showSeconds">
-      <a class="btn btn-link" id="dp-seconds-up" (click)="seconds = seconds + 1">
+      <a class="btn btn-link" id="dp-seconds-up" (click)="seconds = seconds + 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-up"></span>
       </a>
     </td>
@@ -57,31 +57,31 @@
 
   <tr>
     <td *ngIf="config.showYears">
-      <input (blur)="onTouched()" type="number" placeholder="Y" id="dp-years" [(ngModel)]="years">
+      <input (blur)="onTouched()" type="number" placeholder="Y" id="dp-years" [(ngModel)]="years" [disabled]="disabled">
     </td>
 
     <td *ngIf="config.showMonths">
-      <input (blur)="onTouched()" type="number" placeholder="M" id="dp-months" [(ngModel)]="months">
+      <input (blur)="onTouched()" type="number" placeholder="M" id="dp-months" [(ngModel)]="months" [disabled]="disabled">
     </td>
 
     <td *ngIf="config.showWeeks">
-      <input (blur)="onTouched()" type="number" placeholder="W" id="dp-weeks" [(ngModel)]="weeks">
+      <input (blur)="onTouched()" type="number" placeholder="W" id="dp-weeks" [(ngModel)]="weeks" [disabled]="disabled">
     </td>
 
     <td *ngIf="config.showDays">
-      <input (blur)="onTouched()" type="number" placeholder="D" id="dp-days" [(ngModel)]="days">
+      <input (blur)="onTouched()" type="number" placeholder="D" id="dp-days" [(ngModel)]="days" [disabled]="disabled">
     </td>
 
     <td *ngIf="config.showHours">
-      <input (blur)="onTouched()" type="number" placeholder="H" id="dp-hours" [(ngModel)]="hours">
+      <input (blur)="onTouched()" type="number" placeholder="H" id="dp-hours" [(ngModel)]="hours" [disabled]="disabled">
     </td>
 
     <td *ngIf="config.showMinutes">
-      <input (blur)="onTouched()" type="number" placeholder="M" id="dp-minutes" [(ngModel)]="minutes">
+      <input (blur)="onTouched()" type="number" placeholder="M" id="dp-minutes" [(ngModel)]="minutes" [disabled]="disabled">
     </td>
 
     <td *ngIf="config.showSeconds">
-      <input (blur)="onTouched()" type="number" placeholder="S" id="dp-seconds" [(ngModel)]="seconds">
+      <input (blur)="onTouched()" type="number" placeholder="S" id="dp-seconds" [(ngModel)]="seconds" [disabled]="disabled">
     </td>
 
     <td *ngIf="config.showPreview">
@@ -91,43 +91,43 @@
 
   <tr *ngIf="config.showButtons">
     <td *ngIf="config.showYears">
-      <a class="btn btn-link" id="dp-years-down" (click)="years = years - 1">
+      <a class="btn btn-link" id="dp-years-down" (click)="years = years - 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-down"></span>
       </a>
     </td>
 
     <td *ngIf="config.showMonths">
-      <a class="btn btn-link" id="dp-months-down" (click)="months = months - 1">
+      <a class="btn btn-link" id="dp-months-down" (click)="months = months - 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-down"></span>
       </a>
     </td>
 
     <td *ngIf="config.showWeeks">
-      <a class="btn btn-link" id="dp-weeks-down" (click)="weeks = weeks - 1">
+      <a class="btn btn-link" id="dp-weeks-down" (click)="weeks = weeks - 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-down"></span>
       </a>
     </td>
 
     <td *ngIf="config.showDays">
-      <a class="btn btn-link" id="dp-days-down" (click)="days = days - 1">
+      <a class="btn btn-link" id="dp-days-down" (click)="days = days - 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-down"></span>
       </a>
     </td>
 
     <td *ngIf="config.showHours">
-      <a class="btn btn-link" id="dp-hours-down" (click)="hours = hours - 1">
+      <a class="btn btn-link" id="dp-hours-down" (click)="hours = hours - 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-down"></span>
       </a>
     </td>
 
     <td *ngIf="config.showMinutes">
-      <a class="btn btn-link" id="dp-minutes-down" (click)="minutes = minutes - 1">
+      <a class="btn btn-link" id="dp-minutes-down" (click)="minutes = minutes - 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-down"></span>
       </a>
     </td>
 
     <td *ngIf="config.showSeconds">
-      <a class="btn btn-link" id="dp-seconds-down" (click)="seconds = seconds - 1">
+      <a class="btn btn-link" id="dp-seconds-down" (click)="seconds = seconds - 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-down"></span>
       </a>
     </td>

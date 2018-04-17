@@ -34,3 +34,14 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+input[disabled] {
+  cursor: not-allowed;
+  background-color: #EEE;
+  color: #9E9999;
+}
+
+a.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}

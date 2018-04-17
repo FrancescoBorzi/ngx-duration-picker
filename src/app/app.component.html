@@ -3,12 +3,17 @@
     <div class="col-xs-12">
       <div class="h1">Plain binding</div>
 
-      <app-duration-picker [(value)]="myValue"></app-duration-picker>
+      <app-duration-picker [(value)]="myValue" [disabled]="disabled"></app-duration-picker>
 
+    </div>
+    <div class="col-xs-6">
       <div class="alert alert-info">
         {{ myValue }}
       </div>
       <button (click)="myValue = 'P7Y3M2W4DT1H3M5S'" class="btn btn-info">Set to value 'P7Y3M2W4DT1H3M5S'</button>
+    </div>
+    <div class="col-xs-6">
+      <button (click)="disabled = !disabled" class="btn btn-warning">Toggle Enable/Disable</button>
     </div>
   </div>
 
@@ -25,14 +30,21 @@
     <div class="row">
       <div class="col-xs-6">
         <div class="alert alert-info">
-          {{ this.form.get('myDurationControl').value }}
+          {{ form.get('myDurationControl').value }}
         </div>
         <button (click)="setControlToValue('P7Y3M2W4DT1H3M5S')" class="btn btn-info">Set to value 'P7Y3M2W4DT1H3M5S'</button>
       </div>
 
       <div class="col-xs-6">
+        <button (click)="toggleEnableDisableControl()" class="btn btn-warning">Toggle Enable/Disable</button>
+      </div>
+
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-xs-6">
         <div class="alert alert-success">
-          {{ this.form.get('myDurationControl').touched ? 'Touched' : 'Untouched' }}
+          {{ form.get('myDurationControl').touched ? 'Touched' : 'Untouched' }}
         </div>
         <button (click)="makeUntouched()" class="btn btn-success">Make untouched</button>
       </div>

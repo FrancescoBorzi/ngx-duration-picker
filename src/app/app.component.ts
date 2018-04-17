@@ -9,6 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class AppComponent implements OnInit {
 
   myValue;
+  disabled = false;
   form: FormGroup;
 
   ngOnInit() {
@@ -23,5 +24,13 @@ export class AppComponent implements OnInit {
 
   setControlToValue(newValue) {
     this.form.get('myDurationControl').setValue(newValue);
+  }
+
+  toggleEnableDisableControl() {
+    if (this.form.get('myDurationControl').disabled) {
+      this.form.get('myDurationControl').enable();
+    } else {
+      this.form.get('myDurationControl').disable();
+    }
   }
 }
