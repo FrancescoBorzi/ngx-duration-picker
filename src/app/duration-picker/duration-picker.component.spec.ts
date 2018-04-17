@@ -7,6 +7,8 @@ describe('DurationPickerComponent', () => {
   let component: DurationPickerComponent;
   let fixture: ComponentFixture<DurationPickerComponent>;
 
+  const myFunc = () => 'something';
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DurationPickerComponent ],
@@ -119,6 +121,46 @@ describe('DurationPickerComponent', () => {
     expect(component.hours).toBe(0);
     expect(component.minutes).toBe(0);
     expect(component.seconds).toBe(0);
+  });
+
+  it('setDisabledState() should correctly change the disabled status', () => {
+    component.setDisabledState(true);
+    expect(component.disabled).toBe(true);
+
+    component.setDisabledState(false);
+    expect(component.disabled).toBe(false);
+  });
+
+  it('registerOnChange(fn) should correctly set the onChange function', () => {
+    component.onChange = null;
+
+    component.registerOnChange(myFunc);
+
+    expect(component.onChange).toEqual(myFunc);
+  });
+
+  it('registerOnTouched(fn) should correctly set the onTouched function', () => {
+    component.onTouched = null;
+
+    component.registerOnTouched(myFunc);
+
+    expect(component.onTouched).toEqual(myFunc);
+  });
+
+  it('writeValue(value) should change the value when the new value is NOT null', () => {
+    component.value = 'old value';
+
+    component.writeValue('new value');
+
+    expect(component.value).toEqual('new value');
+  });
+
+  it('writeValue(value) should NOT change the value if the new value is null', () => {
+    component.value = 'old value';
+
+    component.writeValue(null);
+
+    expect(component.value).toEqual('old value');
   });
 });
 
