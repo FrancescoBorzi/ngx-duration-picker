@@ -54,6 +54,9 @@ String or Null, default `'PT0S'`.
 
 Value to be used when the duration is 0. Since [the specification](https://en.wikipedia.org/wiki/ISO_8601#Durations) says that `'PT0S'` or `'P0D'` are both valid, you are allowed to change this value. You can also pass just `null`.
 
+#### showNegative
+Boolean, default `false`. Sets up the option for negative and positive durations.
+
 #### showButtons
 Boolean, default `true`. Shows the up and down buttons.
 
