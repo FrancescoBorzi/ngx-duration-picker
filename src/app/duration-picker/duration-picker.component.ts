@@ -46,8 +46,9 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     this._disabled = disabled;
   }
 
-  regex: RegExp = /^P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$/;
+  regex: RegExp = /^[\+\-]?P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$/;
 
+  private _negative = false;
   private _years    = 0;
   private _months   = 0;
   private _weeks    = 0;
@@ -57,6 +58,7 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
   private _seconds  = 0;
 
   config: DurationPickerOptions = {
+    showNegative: true,
     showButtons : true,
     showPreview : true,
     showLetters : true,
@@ -69,6 +71,12 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     showSeconds : true,
     zeroValue   : 'PT0S',
   };
+
+  get negative() { return this._negative; }
+  set negative(value) {
+    this._negative = value;
+    this.emitNewValue();
+  }
 
   get years() { return this._years; }
   set years(value) {
@@ -159,6 +167,7 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
       return;
     }
 
+    this._negative  = match[0].startsWith('-');
     this._years    = this.parseNumber(match[1]);
     this._months   = this.parseNumber(match[2]);
     this._weeks    = this.parseNumber(match[3]);
@@ -174,6 +183,10 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
 
   generate(): string {
     let output = 'P';
+
+    if (this.config.showNegative && this.negative) {
+      output = '-' + output;
+    }
 
     if (this.config.showYears && this.years) {
       output += `${this.years}Y`;
@@ -206,7 +219,7 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     }
 
     // if all values are empty, just output null
-    if (output === 'P') {
+    if (output === 'P' || output === '-P') {
       output = this.config.zeroValue;
     }
 

@@ -2,6 +2,7 @@
   <tbody>
 
   <tr *ngIf="config.showLetters">
+    <td *ngIf="config.showNegative"></td>
     <td *ngIf="config.showYears">Y</td>
     <td *ngIf="config.showMonths">M</td>
     <td *ngIf="config.showWeeks">W</td>
@@ -12,6 +13,8 @@
   </tr>
 
   <tr *ngIf="config.showButtons">
+    <td *ngIf="config.showNegative"></td>
+
     <td *ngIf="config.showYears">
       <a class="btn btn-link" id="dp-years-up" (click)="years = years + 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-up"></span>
@@ -56,6 +59,14 @@
   </tr>
 
   <tr>
+    <td *ngIf="config.showNegative">
+      <input type="checkbox" id="dp-negative" [(ngModel)]="negative" #status [disabled]="disabled">
+      <a class="btn btn-link status-container" (click)="status.click()" [ngClass]="{ 'disabled': disabled }">
+        <span *ngIf="!negative" class="glyphicon glyphicon-plus"></span>
+        <span *ngIf="negative" class="glyphicon glyphicon-minus"></span>
+      </a>
+    </td>
+
     <td *ngIf="config.showYears">
       <input (blur)="onTouched()" type="number" placeholder="Y" id="dp-years" [(ngModel)]="years" [disabled]="disabled">
     </td>
@@ -90,6 +101,8 @@
   </tr>
 
   <tr *ngIf="config.showButtons">
+    <td *ngIf="config.showNegative"></td>
+
     <td *ngIf="config.showYears">
       <a class="btn btn-link" id="dp-years-down" (click)="years = years - 1" [ngClass]="{ 'disabled': disabled }">
         <span class="glyphicon glyphicon-chevron-down"></span>
