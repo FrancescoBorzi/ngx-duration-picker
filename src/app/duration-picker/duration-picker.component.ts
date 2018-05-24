@@ -58,7 +58,7 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
   private _seconds  = 0;
 
   config: DurationPickerOptions = {
-    showNegative: true,
+    showNegative: false,
     showButtons : true,
     showPreview : true,
     showLetters : true,

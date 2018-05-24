@@ -32,8 +32,7 @@
         <div class="alert alert-info">
           {{ form.get('myDurationControl').value }}
         </div>
-        <button (click)="setControlToValue('P7Y3M2W4DT1H3M5S')" class="btn btn-info">Set to positive value 'P7Y3M2W4DT1H3M5S'</button>
-        <button (click)="setControlToValue('-P7Y3M2W4DT1H3M5S')" class="btn btn-info">Set to negative value '-P7Y3M2W4DT1H3M5S'</button>
+        <button (click)="setControlToValue('P7Y3M2W4DT1H3M5S')" class="btn btn-info">Set to value 'P7Y3M2W4DT1H3M5S'</button>
       </div>
 
       <div class="col-xs-6">
@@ -51,6 +50,30 @@
       </div>
     </div>
   </div>
+
+  <hr>
+
+  <div class="row">
+      <div class="col-xs-12">
+        <div class="h1">Negative Duration</div>
+  
+        <app-duration-picker [(value)]="myNegativeValue" [options]="{ showNegative: showNegative }"></app-duration-picker>
+  
+      </div>
+      <div class="col-xs-6">
+        <div class="alert alert-info">
+          {{ myNegativeValue }}
+        </div>
+        <button (click)="myNegativeValue = '-P7Y3M2W4DT1H3M5S'" class="btn btn-info">Set to value '-P7Y3M2W4DT1H3M5S'</button>
+      </div>
+
+      <div class="col-xs-6">
+          <button (click)="showNegative = !showNegative" class="btn btn-warning">
+            <span *ngIf="!showNegative">Show </span>
+            <span *ngIf="showNegative">Hide </span>
+            Negative Durations</button>
+        </div>
+    </div>  
 </div>
 
 
