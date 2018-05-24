@@ -32,7 +32,8 @@
         <div class="alert alert-info">
           {{ form.get('myDurationControl').value }}
         </div>
-        <button (click)="setControlToValue('P7Y3M2W4DT1H3M5S')" class="btn btn-info">Set to value 'P7Y3M2W4DT1H3M5S'</button>
+        <button (click)="setControlToValue('P7Y3M2W4DT1H3M5S')" class="btn btn-info">Set to positive value 'P7Y3M2W4DT1H3M5S'</button>
+        <button (click)="setControlToValue('-P7Y3M2W4DT1H3M5S')" class="btn btn-info">Set to negative value '-P7Y3M2W4DT1H3M5S'</button>
       </div>
 
       <div class="col-xs-6">
