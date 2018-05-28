@@ -232,5 +232,6 @@ function set(
   component.hours = hours;
   component.minutes = minutes;
   component.seconds = seconds;
+  component.config.showNegative = negative;
   component.negative = negative;
 }
