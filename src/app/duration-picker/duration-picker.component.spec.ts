@@ -59,8 +59,44 @@ describe('DurationPickerComponent', () => {
     expect(component.generate()).toBe('P9MT10M');
   });
 
+  it('generate() should correctly generate the negative duration values', () => {
+    set(component, 1, 2, 3, 4, 5, 6, 7, true);
+    expect(component.generate()).toBe('-P1Y2M3W4DT5H6M7S');
+
+    set(component, '1', '2', '3', '4', '5', '6', '7', true);
+    expect(component.generate()).toBe('-P1Y2M3W4DT5H6M7S');
+
+    set(component, 1, 0, 0, 0, 0, 0, 0, true);
+    expect(component.generate()).toBe('-P1Y');
+
+    set(component, 0, 123, 0, 0, 0, 0, 0, true);
+    expect(component.generate()).toBe('-P123M');
+
+    set(component, 0, 0, 3, 0, 0, 0, 0, true);
+    expect(component.generate()).toBe('-P3W');
+
+    set(component, 0, 0, 0, 2, 0, 0, 0, true);
+    expect(component.generate()).toBe('-P2D');
+
+    set(component, 0, 0, 0, 0, 5, 0, 0, true);
+    expect(component.generate()).toBe('-PT5H');
+
+    set(component, 0, 0, 0, 0, 0, 9, 0, true);
+    expect(component.generate()).toBe('-PT9M');
+
+    set(component, 0, 0, 0, 0, 0, 0, 10, true);
+    expect(component.generate()).toBe('-PT10S');
+
+    set(component, 0, 9, 0, 0, 0, 10, 0, true);
+    expect(component.generate()).toBe('-P9MT10M');
+  });
+
   it('generate() should correctly set the zero value according to the configuration', () => {
     set(component, 0, 0, 0, 0, 0, 0, 0);
+
+    expect(component.generate()).toBe('PT0S');
+
+    set(component, 0, 0, 0, 0, 0, 0, 0, true);
 
     expect(component.generate()).toBe('PT0S');
 
@@ -90,6 +126,20 @@ describe('DurationPickerComponent', () => {
     expect(component.hours).toBe(5);
     expect(component.minutes).toBe(6);
     expect(component.seconds).toBe(7);
+    expect(component.negative).toBe(false);
+
+    component.value = '-P1Y2M3W4DT5H6M7S';
+
+    component.parse();
+
+    expect(component.years).toBe(1);
+    expect(component.months).toBe(2);
+    expect(component.weeks).toBe(3);
+    expect(component.days).toBe(4);
+    expect(component.hours).toBe(5);
+    expect(component.minutes).toBe(6);
+    expect(component.seconds).toBe(7);
+    expect(component.negative).toBe(true);
   });
 
   it('parse() should do nothing if the value is null', () => {
@@ -173,6 +223,7 @@ function set(
   hours,
   minutes,
   seconds,
+  negative = false
 ) {
   component.years = years;
   component.months = months;
@@ -181,4 +232,6 @@ function set(
   component.hours = hours;
   component.minutes = minutes;
   component.seconds = seconds;
+  component.config.showNegative = negative;
+  component.negative = negative;
 }

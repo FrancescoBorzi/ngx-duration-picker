@@ -9,6 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class AppComponent implements OnInit {
 
   myValue;
+  myNegativeValue;
+  showNegative = true;
   disabled = false;
   form: FormGroup;
 

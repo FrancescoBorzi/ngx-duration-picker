@@ -1,4 +1,5 @@
 export interface DurationPickerOptions {
+  showNegative: boolean;
   showButtons: boolean;
   showPreview: boolean;
   showLetters: boolean;
