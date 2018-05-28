@@ -60,8 +60,7 @@
 
   <tr>
     <td *ngIf="config.showNegative">
-      <input type="checkbox" id="dp-negative" [(ngModel)]="negative" #status [disabled]="disabled">
-      <a class="btn btn-link status-container" (click)="status.click()" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link status-container" (click)="negative = !negative" [ngClass]="{ 'disabled': disabled }">
         <span *ngIf="!negative" class="glyphicon glyphicon-plus"></span>
         <span *ngIf="negative" class="glyphicon glyphicon-minus"></span>
       </a>
