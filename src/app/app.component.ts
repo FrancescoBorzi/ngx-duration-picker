@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
+  selector: 'ngxd-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
 
   myValue;
   myNegativeValue;
+  myNumberValue;
   showNegative = true;
   disabled = false;
   form: FormGroup;
