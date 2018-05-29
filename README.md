@@ -31,7 +31,7 @@ export class AppModule { }
 
 ## Usage
 
-```<ngxd-duration-picker [(value)]="myDuration"></ngxd-duration-picker>```
+```<ngx-duration-picker [(value)]="myDuration"></ngx-duration-picker>```
 
 where **myDuration** will be the variable where the output is stored, you can also pass an initial value.
 
@@ -39,13 +39,13 @@ where **myDuration** will be the variable where the output is stored, you can al
 
 if you need to perform some operations each time the bound variable changes, you can use `(valueChange)`:
 
-```<ngxd-duration-picker [(value)]="myDuration" (valueChange)="doSomeStuff()">```
+```<ngx-duration-picker [(value)]="myDuration" (valueChange)="doSomeStuff()">```
 
 ### Passing options
 
 you can pass specify some options by binding `[options]` to your configuration object:
 
-```<ngxd-duration-picker [(value)]="myDuration" [options]="{ showWeeks: false }" mode="seconds">```
+```<ngx-duration-picker [(value)]="myDuration" [options]="{ showWeeks: false }" mode="seconds">```
 
 ### Available options
 

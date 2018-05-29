@@ -30,7 +30,7 @@ const DURATION_UNITS = {
 };
 
 @Component({
-  selector: 'ngxd-duration-picker',
+  selector: 'ngx-duration-picker',
   templateUrl: './duration-picker.component.html',
   styleUrls: ['./duration-picker.component.css'],
   providers: [
