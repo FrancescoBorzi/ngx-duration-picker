@@ -45,7 +45,7 @@ if you need to perform some operations each time the bound variable changes, you
 
 you can pass specify some options by binding `[options]` to your configuration object:
 
-```<ngx-duration-picker [(value)]="myDuration" [options]="{ showWeeks: false }" mode="seconds">```
+```<ngx-duration-picker [(value)]="myDuration" [options]="{ showWeeks: false, mode: 'seconds' }">```
 
 ### Available options
 
@@ -87,10 +87,9 @@ Boolean, default `true`. Shows the minutes, when hidden it will be always consid
 #### showSeconds
 Boolean, default `true`. Shows the seconds, when hidden it will be always considered as 0.
 
-### Mode options
+#### mode
+`'ISO_8601'` | `'seconds'` | `'minutes'` | `'hours'` | `'days'` | `'weeks'` | `'months'` | `'years'`, default `'ISO_8601'`. 
 
-#### ISO_8601 (default)
-The default mode where the input and output value are in [ISO_8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+Specify `ISO_8601` if the desired input and output values are [ISO_8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 
-#### seconds/minutes/hours/days/weeks/months/years
-Specify one of these types if you would for example like to input and output seconds instead of ISO 8601 durations.
+Specify one of the other types if you would for example like to input and output seconds instead of ISO 8601 durations.

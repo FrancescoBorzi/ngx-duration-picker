@@ -1,7 +1,7 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {FormsModule} from '@angular/forms';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
-import {DurationPickerComponent} from './duration-picker.component';
+import { DurationPickerComponent } from './duration-picker.component';
 
 describe('DurationPickerComponent', () => {
   let component: DurationPickerComponent;
@@ -11,10 +11,10 @@ describe('DurationPickerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DurationPickerComponent],
-      imports: [FormsModule],
+      declarations: [ DurationPickerComponent ],
+      imports: [ FormsModule ],
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
@@ -133,6 +133,8 @@ describe('DurationPickerComponent', () => {
     });
 
     it('generate() should correctly generate the negative duration values', () => {
+      component.options = {showNegative: true};
+
       set(component, 1, 2, 3, 4, 5, 6, 7, true);
       expect(component.generate()).toBe('-P1Y2M3W4DT5H6M7S');
 
@@ -212,7 +214,7 @@ describe('DurationPickerComponent', () => {
   describe('number mode', () => {
 
     it('generate() should correctly generate the duration values', () => {
-      component.mode = 'seconds';
+      component.options = {mode: 'seconds'};
 
       set(component, 1, 2, 3, 4, 5, 6, 7);
       expect(component.generate()).toBe(38970367);
@@ -241,39 +243,39 @@ describe('DurationPickerComponent', () => {
       set(component, 0, 9, 0, 0, 0, 10, 0);
       expect(component.generate()).toBe(23652600);
 
-      component.mode = 'minutes';
+      component.options = {mode: 'minutes'};
 
       set(component, 0, 0, 0, 0, 1, 10, 0);
       expect(component.generate()).toBe(70);
 
-      component.mode = 'hours';
+      component.options = {mode: 'hours'};
 
       set(component, 0, 0, 0, 2, 11, 0, 0);
       expect(component.generate()).toBe(59);
 
-      component.mode = 'days';
+      component.options = {mode: 'days'};
 
       set(component, 0, 0, 3, 1, 0, 0, 0);
       expect(component.generate()).toBe(22);
 
-      component.mode = 'weeks';
+      component.options = {mode: 'weeks'};
 
       set(component, 0, 0, 4, 0, 0, 0, 0);
       expect(component.generate()).toBe(4);
 
-      component.mode = 'months';
+      component.options = {mode: 'months'};
 
       set(component, 1, 2, 0, 0, 0, 0, 0);
       expect(component.generate()).toBe(14);
 
-      component.mode = 'years';
+      component.options = {mode: 'years'};
 
       set(component, 3, 0, 0, 0, 0, 0, 0);
       expect(component.generate()).toBe(3);
     });
 
     it('generate() should correctly generate the negative duration values', () => {
-      component.mode = 'seconds';
+      component.options = {mode: 'seconds', showNegative: true};
 
       set(component, 1, 2, 3, 4, 5, 6, 7, true);
       expect(component.generate()).toBe(-38970367);
@@ -302,39 +304,39 @@ describe('DurationPickerComponent', () => {
       set(component, 0, 9, 0, 0, 0, 10, 0, true);
       expect(component.generate()).toBe(-23652600);
 
-      component.mode = 'minutes';
+      component.options = {mode: 'minutes', showNegative: true};
 
       set(component, 0, 0, 0, 0, 1, 10, 0, true);
       expect(component.generate()).toBe(-70);
 
-      component.mode = 'hours';
+      component.options = {mode: 'hours', showNegative: true};
 
       set(component, 0, 0, 0, 2, 11, 0, 0, true);
       expect(component.generate()).toBe(-59);
 
-      component.mode = 'days';
+      component.options = {mode: 'days', showNegative: true};
 
       set(component, 0, 0, 3, 1, 0, 0, 0, true);
       expect(component.generate()).toBe(-22);
 
-      component.mode = 'weeks';
+      component.options = {mode: 'weeks', showNegative: true};
 
       set(component, 0, 0, 4, 0, 0, 0, 0, true);
       expect(component.generate()).toBe(-4);
 
-      component.mode = 'months';
+      component.options = {mode: 'months', showNegative: true};
 
       set(component, 1, 2, 0, 0, 0, 0, 0, true);
       expect(component.generate()).toBe(-14);
 
-      component.mode = 'years';
+      component.options = {mode: 'years', showNegative: true};
 
       set(component, 3, 0, 0, 0, 0, 0, 0, true);
       expect(component.generate()).toBe(-3);
     });
 
     it('parse() should correctly parse the input number', () => {
-      component.mode = 'seconds';
+      component.options = {mode: 'seconds'};
       component.value = 38970367;
 
       component.parse();
@@ -382,6 +384,5 @@ function set(
   component.hours = hours;
   component.minutes = minutes;
   component.seconds = seconds;
-  component.config.showNegative = negative;
   component.negative = negative;
 }

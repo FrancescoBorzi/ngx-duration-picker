@@ -13,4 +13,5 @@ export interface DurationPickerOptions {
   showMinutes?: boolean;
   showSeconds?: boolean;
   zeroValue?: string | null;
+  mode?: DurationPickerMode;
 }
