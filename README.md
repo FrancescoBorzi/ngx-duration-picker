@@ -31,7 +31,7 @@ export class AppModule { }
 
 ## Usage
 
-```<app-duration-picker [(value)]="myDuration"></app-duration-picker>```
+```<ngx-duration-picker [(value)]="myDuration"></ngx-duration-picker>```
 
 where **myDuration** will be the variable where the output is stored, you can also pass an initial value.
 
@@ -39,13 +39,13 @@ where **myDuration** will be the variable where the output is stored, you can al
 
 if you need to perform some operations each time the bound variable changes, you can use `(valueChange)`:
 
-```<app-duration-picker [(value)]="myDuration" (valueChange)="doSomeStuff()">```
+```<ngx-duration-picker [(value)]="myDuration" (valueChange)="doSomeStuff()">```
 
 ### Passing options
 
 you can pass specify some options by binding `[options]` to your configuration object:
 
-```<app-duration-picker [(value)]="myDuration" [options]="{ showWeeks: false }">```
+```<ngx-duration-picker [(value)]="myDuration" [options]="{ showWeeks: false, mode: 'seconds' }">```
 
 ### Available options
 
@@ -86,3 +86,10 @@ Boolean, default `true`. Shows the minutes, when hidden it will be always consid
 
 #### showSeconds
 Boolean, default `true`. Shows the seconds, when hidden it will be always considered as 0.
+
+#### mode
+`'ISO_8601'` | `'seconds'` | `'minutes'` | `'hours'` | `'days'` | `'weeks'` | `'months'` | `'years'`, default `'ISO_8601'`. 
+
+Specify `ISO_8601` if the desired input and output values are [ISO_8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+
+Specify one of the other types if you would for example like to input and output seconds instead of ISO 8601 durations.

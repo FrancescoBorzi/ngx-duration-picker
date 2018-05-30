@@ -3,8 +3,34 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { DurationPickerOptions } from './duration-picker';
 
+const ISO_REGEX: RegExp = /^[+\-]?P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$/;
+const DEFAULT_CONFIG_OPTIONS: DurationPickerOptions = {
+  showNegative: false,
+  showButtons: true,
+  showPreview: true,
+  showLetters: true,
+  showYears: true,
+  showMonths: true,
+  showWeeks: true,
+  showDays: true,
+  showHours: true,
+  showMinutes: true,
+  showSeconds: true,
+  zeroValue: 'PT0S',
+  mode: 'ISO_8601'
+};
+const DURATION_UNITS = {
+  seconds: 1,
+  minutes: 60,
+  hours: 3600,
+  days: 86400,
+  weeks: 604800,
+  months: 2628000,
+  years: 31536000
+};
+
 @Component({
-  selector: 'app-duration-picker',
+  selector: 'ngx-duration-picker',
   templateUrl: './duration-picker.component.html',
   styleUrls: ['./duration-picker.component.css'],
   providers: [
@@ -16,26 +42,20 @@ import { DurationPickerOptions } from './duration-picker';
   ],
 })
 export class DurationPickerComponent implements OnInit, ControlValueAccessor {
-
-  @Input() set options(options) {
-    this.attachChanges(options);
+  @Input() set options(options: DurationPickerOptions) {
+    this.config = {...DEFAULT_CONFIG_OPTIONS, ...options};
+    this.parse();
   }
 
-  private _value: string;
-
-  get value(): string {
+  get value(): string | number {
     return this._value;
   }
 
   @Input()
-  set value(value: string) {
+  set value(value: string | number) {
     this._value = value;
     this.parse();
   }
-
-  @Output() valueChange = new EventEmitter<string>();
-
-  private _disabled = false;
 
   get disabled(): boolean {
     return this._disabled;
@@ -46,31 +66,20 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     this._disabled = disabled;
   }
 
-  regex: RegExp = /^[\+\-]?P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$/;
+  @Output() valueChange = new EventEmitter<string | number>();
 
+  private _value: string | number;
+  private _disabled = false;
   private _negative = false;
-  private _years    = 0;
-  private _months   = 0;
-  private _weeks    = 0;
-  private _days     = 0 ;
-  private _hours    = 0;
-  private _minutes  = 0;
-  private _seconds  = 0;
+  private _years = 0;
+  private _months = 0;
+  private _weeks = 0;
+  private _days = 0;
+  private _hours = 0;
+  private _minutes = 0;
+  private _seconds = 0;
 
-  config: DurationPickerOptions = {
-    showNegative: false,
-    showButtons : true,
-    showPreview : true,
-    showLetters : true,
-    showYears   : true,
-    showMonths  : true,
-    showWeeks   : true,
-    showDays    : true,
-    showHours   : true,
-    showMinutes : true,
-    showSeconds : true,
-    zeroValue   : 'PT0S',
-  };
+  config: DurationPickerOptions = {...DEFAULT_CONFIG_OPTIONS};
 
   get negative() { return this._negative; }
   set negative(value) {
@@ -155,19 +164,19 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     this.disabled = isDisabled;
   }
 
-  parse() {
-    if (!this.value) {
-      return;
-    }
+  parseNumber(value): number {
+    return value ? parseInt(value, 10) : 0;
+  }
 
-    const match = this.regex.exec(this.value);
+  parseISO8601Value(value: string) {
+    const match = ISO_REGEX.exec(value);
 
     if (!match) {
-      console.error(`DurationPicker: invalid initial value: ${this.value}`);
+      console.error(`DurationPicker: invalid initial value: ${value}`);
       return;
     }
 
-    this._negative  = match[0].startsWith('-');
+    this._negative = match[0].startsWith('-');
     this._years    = this.parseNumber(match[1]);
     this._months   = this.parseNumber(match[2]);
     this._weeks    = this.parseNumber(match[3]);
@@ -177,11 +186,37 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     this._seconds  = this.parseNumber(match[8]);
   }
 
-  parseNumber(value): number {
-    return value ? parseInt(value, 10) : 0;
+  parseNumericValue(value: number) {
+    const baseValue = DURATION_UNITS[this.config.mode];
+    let numberValue = value * baseValue;
+    this._negative = numberValue < 0;
+    numberValue = numberValue < 0 ? (numberValue * -1) : numberValue;
+    this._years = Math.floor(numberValue / DURATION_UNITS.years);
+    numberValue = numberValue - (this._years * DURATION_UNITS.years);
+    this._months = Math.floor(numberValue / DURATION_UNITS.months);
+    numberValue = numberValue - (this._months * DURATION_UNITS.months);
+    this._weeks = Math.floor(numberValue / DURATION_UNITS.weeks);
+    numberValue = numberValue - (this._weeks * DURATION_UNITS.weeks);
+    this._days = Math.floor(numberValue / DURATION_UNITS.days);
+    numberValue = numberValue - (this._days * DURATION_UNITS.days);
+    this._hours = Math.floor(numberValue / DURATION_UNITS.hours);
+    numberValue = numberValue - (this._hours * DURATION_UNITS.hours);
+    this._minutes = Math.floor(numberValue / DURATION_UNITS.minutes);
+    numberValue = numberValue - (this._minutes * DURATION_UNITS.minutes);
+    this._seconds = Math.floor(numberValue / DURATION_UNITS.seconds);
   }
 
-  generate(): string {
+  parse() {
+    if (this.config.mode === 'ISO_8601') {
+      if (this.value) {
+        this.parseISO8601Value(this.value as string);
+      }
+    } else {
+      this.parseNumericValue(this.value as number || 0);
+    }
+  }
+
+  generateISO8601Value(): string {
     let output = 'P';
 
     if (this.config.showNegative && this.negative) {
@@ -219,11 +254,31 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     }
 
     // if all values are empty, just output null
-    if (output === 'P' || output === '-P') {
+    if (output === 'P' || output === '-P') {
       output = this.config.zeroValue;
     }
 
     return output;
+  }
+
+  generateNumericValue(): number {
+    const currentValueInSeconds = (this.years * DURATION_UNITS.years) +
+      (this.months * DURATION_UNITS.months) +
+      (this.weeks * DURATION_UNITS.weeks) +
+      (this.days * DURATION_UNITS.days) +
+      (this.hours * DURATION_UNITS.hours) +
+      (this.minutes * DURATION_UNITS.minutes) +
+      (this.seconds * DURATION_UNITS.seconds);
+    const duration = Math.floor(currentValueInSeconds / DURATION_UNITS[this.config.mode]);
+    return this.config.showNegative && this.negative ? (duration * -1) : duration;
+  }
+
+  generate(): string | number {
+    if (this.config.mode === 'ISO_8601') {
+      return this.generateISO8601Value();
+    } else {
+      return this.generateNumericValue();
+    }
   }
 
   emitNewValue() {
@@ -231,14 +286,5 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     this.valueChange.emit(this.value);
     this.onTouched();
     this.onChange(this.value);
-  }
-
-  // Attach all the changes received in the options object
-  attachChanges(options: any): void {
-    Object.keys(options).forEach(param => {
-      if (this.config.hasOwnProperty(param)) {
-        (this.config)[param] = options[param];
-      }
-    });
   }
 }
