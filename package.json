@@ -40,8 +40,7 @@
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.7",
     "rxjs": "^6.2.1",
-    "zone.js": "^0.8.20",
-    "rxjs-compat": "^6.0.0-rc.0"
+    "zone.js": "^0.8.20"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.8",
