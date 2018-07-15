@@ -60,7 +60,12 @@
 
   <tr>
     <td *ngIf="config.showNegative">
-      <a class="btn btn-link status-container" (click)="negative = !negative" [ngClass]="{ 'disabled': disabled }">
+      <a
+        class="btn btn-link status-container"
+        id="dp-sign"
+        (click)="negative = !negative"
+        [ngClass]="{ 'disabled': disabled }"
+      >
         <span *ngIf="!negative" class="glyphicon glyphicon-plus"></span>
         <span *ngIf="negative" class="glyphicon glyphicon-minus"></span>
       </a>
