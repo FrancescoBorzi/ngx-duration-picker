@@ -1,10 +1,36 @@
 import { $, browser, ElementFinder } from 'protractor';
 
 import {
-  DURATION_PICKER,OUTPUT, SET_VALUE_BUTTON, TOGGLE_BUTTON,  TOUCHED_STATUS, MAKE_UNTOUCHED_BUTTON, DP_YEARS_ARROW_UP, DP_MONTHS_ARROW_UP,
-  DP_WEEKS_ARROW_UP, DP_DAYS_ARROW_UP, DP_HOURS_ARROW_UP, DP_MINUTES_ARROW_UP, DP_SECONDS_ARROW_UP, DP_YEARS_ARROW_DOWN,
-  DP_MONTHS_ARROW_DOWN, DP_WEEKS_ARROW_DOWN, DP_DAYS_ARROW_DOWN, DP_HOURS_ARROW_DOWN, DP_MINUTES_ARROW_DOWN, DP_SECONDS_ARROW_DOWN,
-  DP_YEARS_INPUT, DP_MONTHS_INPUT, DP_WEEKS_INPUT, DP_DAYS_INPUT, DP_HOURS_INPUT, DP_MINUTES_INPUT, DP_SECONDS_INPUT, DP_VALUE, DP_SIGN
+  DURATION_PICKER,
+  OUTPUT,
+  SET_VALUE_BUTTON,
+  TOGGLE_BUTTON,
+  TOUCHED_STATUS,
+  MAKE_UNTOUCHED_BUTTON,
+  DP_YEARS_ARROW_UP,
+  DP_MONTHS_ARROW_UP,
+  DP_WEEKS_ARROW_UP,
+  DP_DAYS_ARROW_UP,
+  DP_HOURS_ARROW_UP,
+  DP_MINUTES_ARROW_UP,
+  DP_SECONDS_ARROW_UP,
+  DP_YEARS_ARROW_DOWN,
+  DP_MONTHS_ARROW_DOWN,
+  DP_WEEKS_ARROW_DOWN,
+  DP_DAYS_ARROW_DOWN,
+  DP_HOURS_ARROW_DOWN,
+  DP_MINUTES_ARROW_DOWN,
+  DP_SECONDS_ARROW_DOWN,
+  DP_YEARS_INPUT,
+  DP_MONTHS_INPUT,
+  DP_WEEKS_INPUT,
+  DP_DAYS_INPUT,
+  DP_HOURS_INPUT,
+  DP_MINUTES_INPUT,
+  DP_SECONDS_INPUT,
+  DP_VALUE,
+  DP_SIGN,
+  TOGGLE_NEGATIVE_BUTTON
 } from './constants';
 
 export class WrapperPageObject {
@@ -16,6 +42,7 @@ export class WrapperPageObject {
   toggleButton: ElementFinder;
   touchedStatusContainer: ElementFinder;
   makeUntouchedButton: ElementFinder;
+  toggleNegativeButton: ElementFinder;
 
   dpYearsArrowUp: ElementFinder;
   dpMonthsArrowUp: ElementFinder;
@@ -43,6 +70,7 @@ export class WrapperPageObject {
 
   dpValueContainer: ElementFinder;
   dpSignButton: ElementFinder;
+  dpSignButtonIcon: ElementFinder;
 
   constructor(wrapperSelector: string) {
     this.wrapper = $(wrapperSelector);
@@ -53,6 +81,7 @@ export class WrapperPageObject {
     this.toggleButton = this.wrapper.$(TOGGLE_BUTTON);
     this.touchedStatusContainer = this.wrapper.$(TOUCHED_STATUS);
     this.makeUntouchedButton = this.wrapper.$(MAKE_UNTOUCHED_BUTTON);
+    this.toggleNegativeButton = this.wrapper.$(TOGGLE_NEGATIVE_BUTTON);
 
     this.dpYearsArrowUp = this.durationPicker.$(DP_YEARS_ARROW_UP);
     this.dpMonthsArrowUp = this.durationPicker.$(DP_MONTHS_ARROW_UP);
@@ -80,6 +109,7 @@ export class WrapperPageObject {
 
     this.dpValueContainer = this.durationPicker.$(DP_VALUE);
     this.dpSignButton = this.durationPicker.$(DP_SIGN);
+    this.dpSignButtonIcon = this.dpSignButton.$('span');
   }
 
   navigateTo() {

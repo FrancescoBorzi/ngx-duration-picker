@@ -11,6 +11,7 @@ export const SET_VALUE_BUTTON = '.set-value';
 export const TOGGLE_BUTTON = '.toggle';
 export const TOUCHED_STATUS = '.touched-status';
 export const MAKE_UNTOUCHED_BUTTON = '.make-untouched';
+export const TOGGLE_NEGATIVE_BUTTON = '#toggle-negative';
 
 export const DP_YEARS_ARROW_UP = '#dp-years-up';
 export const DP_MONTHS_ARROW_UP = '#dp-months-up';
