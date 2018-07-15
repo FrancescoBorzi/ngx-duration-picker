@@ -76,14 +76,18 @@
         </div>
         <button
           (click)="myNegativeValue = '-P7Y3M2W4DT1H3M5S'"
-          class="btn btn-info"
+          class="set-value btn btn-info"
         >
           Set to value '-P7Y3M2W4DT1H3M5S'
         </button>
       </div>
 
       <div class="col-xs-6">
-          <button (click)="showNegative = !showNegative" class="btn btn-warning">
+          <button
+            (click)="showNegative = !showNegative"
+            class="btn btn-warning"
+            id="toggle-negative"
+          >
             <span *ngIf="!showNegative">Show </span>
             <span *ngIf="showNegative">Hide </span>
             Negative Durations</button>
