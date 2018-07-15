@@ -15,30 +15,63 @@ describe('ngx-duration-picker', () => {
         page.navigateTo();
       });
 
-      it('Toggle Enable/Disable should correctly work', () => {
+      it('should contain the DurationPicker element', () => {
+        expect(page.durationPicker.isPresent()).toBe(true);
+      });
+
+      it('Toggle disable should correctly work', () => {
         page.toggleButton.click();
 
-        expect(page.dpYearsArrowUp.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpMonthsArrowUp.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpWeeksArrowUp.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpDaysArrowUp.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpHoursArrowUp.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpMinutesArrowUp.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpSecondsArrowUp.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpYearsArrowDown.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpMonthsArrowDown.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpWeeksArrowDown.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpDaysArrowDown.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpHoursArrowDown.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpMinutesArrowDown.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpSecondsArrowDown.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpYearsInput.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpMonthsInput.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpWeeksInput.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpDaysInput.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpHoursInput.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpMinutesInput.getAttribute('disabled')).toBe('disabled');
-        expect(page.dpSecondsInput.getAttribute('disabled')).toBe('disabled');
+        expect(page.dpYearsArrowUp.getAttribute('class')).toContain('disabled');
+        expect(page.dpMonthsArrowUp.getAttribute('class')).toContain('disabled');
+        expect(page.dpWeeksArrowUp.getAttribute('class')).toContain('disabled');
+        expect(page.dpDaysArrowUp.getAttribute('class')).toContain('disabled');
+        expect(page.dpHoursArrowUp.getAttribute('class')).toContain('disabled');
+        expect(page.dpMinutesArrowUp.getAttribute('class')).toContain('disabled');
+        expect(page.dpSecondsArrowUp.getAttribute('class')).toContain('disabled');
+        expect(page.dpYearsArrowDown.getAttribute('class')).toContain('disabled');
+        expect(page.dpMonthsArrowDown.getAttribute('class')).toContain('disabled');
+        expect(page.dpWeeksArrowDown.getAttribute('class')).toContain('disabled');
+        expect(page.dpDaysArrowDown.getAttribute('class')).toContain('disabled');
+        expect(page.dpHoursArrowDown.getAttribute('class')).toContain('disabled');
+        expect(page.dpMinutesArrowDown.getAttribute('class')).toContain('disabled');
+        expect(page.dpSecondsArrowDown.getAttribute('class')).toContain('disabled');
+
+        expect(page.dpYearsInput.getAttribute('disabled')).toBeTruthy();
+        expect(page.dpMonthsInput.getAttribute('disabled')).toBeTruthy();
+        expect(page.dpWeeksInput.getAttribute('disabled')).toBeTruthy();
+        expect(page.dpDaysInput.getAttribute('disabled')).toBeTruthy();
+        expect(page.dpHoursInput.getAttribute('disabled')).toBeTruthy();
+        expect(page.dpMinutesInput.getAttribute('disabled')).toBeTruthy();
+        expect(page.dpSecondsInput.getAttribute('disabled')).toBeTruthy();
+      });
+
+      it('Toggle enable should correctly work', () => {
+        page.toggleButton.click();
+        page.toggleButton.click();
+
+        expect(page.dpYearsArrowUp.getAttribute('class')).not.toContain('disabled');
+        expect(page.dpMonthsArrowUp.getAttribute('class')).not.toContain('disabled');
+        expect(page.dpWeeksArrowUp.getAttribute('class')).not.toContain('disabled');
+        expect(page.dpDaysArrowUp.getAttribute('class')).not.toContain('disabled');
+        expect(page.dpHoursArrowUp.getAttribute('class')).not.toContain('disabled');
+        expect(page.dpMinutesArrowUp.getAttribute('class')).not.toContain('disabled');
+        expect(page.dpSecondsArrowUp.getAttribute('class')).not.toContain('disabled');
+        expect(page.dpYearsArrowDown.getAttribute('class')).not.toContain('disabled');
+        expect(page.dpMonthsArrowDown.getAttribute('class')).not.toContain('disabled');
+        expect(page.dpWeeksArrowDown.getAttribute('class')).not.toContain('disabled');
+        expect(page.dpDaysArrowDown.getAttribute('class')).not.toContain('disabled');
+        expect(page.dpHoursArrowDown.getAttribute('class')).not.toContain('disabled');
+        expect(page.dpMinutesArrowDown.getAttribute('class')).not.toContain('disabled');
+        expect(page.dpSecondsArrowDown.getAttribute('class')).not.toContain('disabled');
+
+        expect(page.dpYearsInput.getAttribute('disabled')).toBeFalsy();
+        expect(page.dpMonthsInput.getAttribute('disabled')).toBeFalsy();
+        expect(page.dpWeeksInput.getAttribute('disabled')).toBeFalsy();
+        expect(page.dpDaysInput.getAttribute('disabled')).toBeFalsy();
+        expect(page.dpHoursInput.getAttribute('disabled')).toBeFalsy();
+        expect(page.dpMinutesInput.getAttribute('disabled')).toBeFalsy();
+        expect(page.dpSecondsInput.getAttribute('disabled')).toBeFalsy();
       });
     });
 

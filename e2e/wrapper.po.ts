@@ -45,7 +45,7 @@ export class WrapperPageObject {
   dpSignButton: ElementFinder;
 
   constructor(wrapperSelector: string) {
-    this.wrapper = element($(wrapperSelector));
+    this.wrapper = $(wrapperSelector);
 
     this.durationPicker = this.wrapper.$(DURATION_PICKER);
     this.outputContainer = this.wrapper.$(OUTPUT);
@@ -85,4 +85,5 @@ export class WrapperPageObject {
   navigateTo() {
     return browser.get('/');
   }
+
 }
