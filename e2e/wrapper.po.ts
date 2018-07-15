@@ -14,7 +14,7 @@ export class WrapperPageObject {
   outputContainer: ElementFinder;
   setValueButton: ElementFinder;
   toggleButton: ElementFinder;
-  untouchedStatusContainer: ElementFinder;
+  touchedStatusContainer: ElementFinder;
   makeUntouchedButton: ElementFinder;
 
   dpYearsArrowUp: ElementFinder;
@@ -51,7 +51,7 @@ export class WrapperPageObject {
     this.outputContainer = this.wrapper.$(OUTPUT);
     this.setValueButton = this.wrapper.$(SET_VALUE_BUTTON);
     this.toggleButton = this.wrapper.$(TOGGLE_BUTTON);
-    this.untouchedStatusContainer = this.wrapper.$(TOUCHED_STATUS);
+    this.touchedStatusContainer = this.wrapper.$(TOUCHED_STATUS);
     this.makeUntouchedButton = this.wrapper.$(MAKE_UNTOUCHED_BUTTON);
 
     this.dpYearsArrowUp = this.durationPicker.$(DP_YEARS_ARROW_UP);

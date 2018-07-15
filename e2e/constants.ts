@@ -1,3 +1,5 @@
+/* CSS selectors (elements, #IDs and .classes) */
+
 export const PLAIN_BINDING_WRAPPER = '#plain-binding';
 export const REACTIVE_FORM_WRAPPER = '#reactive-form';
 export const NEGATIVE_DURATION_WRAPPER = '#negative-duration';
@@ -36,3 +38,7 @@ export const DP_SECONDS_INPUT = '#dp-seconds';
 
 export const DP_VALUE = '#dp-duration-value';
 export const DP_SIGN = '#dp-sign';
+
+/* Texts */
+export const TOUCHED_TEXT = 'Touched';
+export const UNTOUCHED_TEXT = 'Untouched';
