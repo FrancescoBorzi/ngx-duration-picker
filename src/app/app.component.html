@@ -3,7 +3,7 @@
     <div class="col-xs-12">
       <div class="h1">Plain binding</div>
 
-      <app-duration-picker [(value)]="myValue" [disabled]="disabled"></app-duration-picker>
+      <ngx-duration-picker [(value)]="myValue" [disabled]="disabled"></ngx-duration-picker>
 
     </div>
     <div class="col-xs-6">
@@ -28,7 +28,7 @@
     <div class="col-xs-12">
       <div class="h1">Reactive Form</div>
       <form [formGroup]="form">
-        <app-duration-picker [formControlName]="'myDurationControl'"></app-duration-picker>
+        <ngx-duration-picker [formControlName]="'myDurationControl'"></ngx-duration-picker>
       </form>
     </div>
 
@@ -67,7 +67,7 @@
       <div class="col-xs-12">
         <div class="h1">Negative Duration</div>
 
-        <app-duration-picker [(value)]="myNegativeValue" [options]="{ showNegative: showNegative }"></app-duration-picker>
+        <ngx-duration-picker [(value)]="myNegativeValue" [options]="{ showNegative: showNegative }"></ngx-duration-picker>
 
       </div>
       <div class="col-xs-6">

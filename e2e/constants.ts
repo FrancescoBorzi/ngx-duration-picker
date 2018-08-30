@@ -4,7 +4,7 @@ export const PLAIN_BINDING_WRAPPER = '#plain-binding';
 export const REACTIVE_FORM_WRAPPER = '#reactive-form';
 export const NEGATIVE_DURATION_WRAPPER = '#negative-duration';
 
-export const DURATION_PICKER = 'app-duration-picker';
+export const DURATION_PICKER = 'ngx-duration-picker';
 
 export const OUTPUT = '.output';
 export const SET_VALUE_BUTTON = '.set-value';

@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DurationPickerOptions } from './duration-picker';
 
 @Component({
-  selector: 'app-duration-picker',
+  selector: 'ngx-duration-picker',
   templateUrl: './duration-picker.component.html',
   styleUrls: ['./duration-picker.component.css'],
   providers: [
