@@ -53,3 +53,41 @@ a.disabled {
   cursor: not-allowed;
   pointer-events: none;
 }
+
+// chevron style - credits to ngx-bootstrap
+.bs-chevron {
+  border-style: solid;
+  display: block;
+  width: 9px;
+  height: 9px;
+  position: relative;
+  border-width: 3px 0 0 3px;
+}
+.bs-chevron-up {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: 2px;
+}
+.bs-chevron-down {
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  top: -2px;
+}
+
+.bs-icon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.bs-icon-plus:before {
+  content: "\002b";
+}
+.bs-icon-minus:before {
+  content: "\2212";
+}
+

@@ -6,7 +6,7 @@ import { DurationPickerOptions } from './duration-picker';
 @Component({
   selector: 'ngx-duration-picker',
   templateUrl: './duration-picker.component.html',
-  styleUrls: ['./duration-picker.component.css'],
+  styleUrls: ['./duration-picker.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

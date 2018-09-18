@@ -21,8 +21,7 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/assets/scss/main.scss"
             ],
             "scripts": []
           },
@@ -93,6 +92,11 @@
             ]
           }
         }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
       }
     },
     "ngx-duration-picker-e2e": {
@@ -125,7 +129,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "styleext": "css"
+      "styleext": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "app"
