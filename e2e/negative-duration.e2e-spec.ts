@@ -14,15 +14,15 @@ describe('Negative Duration (specific checks)', () => {
 
   it('the plus sign should be initially there', () => {
     expect(page.dpSignButton.isPresent()).toBe(true);
-    expect(page.dpSignButtonIcon.getAttribute('class')).toContain('glyphicon-plus');
-    expect(page.dpSignButtonIcon.getAttribute('class')).not.toContain('glyphicon-minus');
+    expect(page.dpSignButtonIcon.getAttribute('class')).toContain('bs-icon-plus');
+    expect(page.dpSignButtonIcon.getAttribute('class')).not.toContain('bs-icon-minus');
   });
 
   it('pushing the "set to value" button should correctly work', () => {
     page.setValueButton.click();
 
-    expect(page.dpSignButtonIcon.getAttribute('class')).toContain('glyphicon-minus');
-    expect(page.dpSignButtonIcon.getAttribute('class')).not.toContain('glyphicon-plus');
+    expect(page.dpSignButtonIcon.getAttribute('class')).toContain('bs-icon-minus');
+    expect(page.dpSignButtonIcon.getAttribute('class')).not.toContain('bs-icon-plus');
     expect(page.outputContainer.getText()).toBe('-P7Y3M2W4DT1H3M5S');
     expect(page.dpValueContainer.getText()).toBe('-P7Y3M2W4DT1H3M5S');
     expect(page.dpYearsInput.getAttribute('value')).toBe('7');
@@ -39,15 +39,15 @@ describe('Negative Duration (specific checks)', () => {
 
     page.dpSignButton.click();
 
-    expect(page.dpSignButtonIcon.getAttribute('class')).toContain('glyphicon-plus');
-    expect(page.dpSignButtonIcon.getAttribute('class')).not.toContain('glyphicon-minus');
+    expect(page.dpSignButtonIcon.getAttribute('class')).toContain('bs-icon-plus');
+    expect(page.dpSignButtonIcon.getAttribute('class')).not.toContain('bs-icon-minus');
     expect(page.outputContainer.getText()).toBe('P7Y3M2W4DT1H3M5S');
     expect(page.dpValueContainer.getText()).toBe('P7Y3M2W4DT1H3M5S');
 
     page.dpSignButton.click();
 
-    expect(page.dpSignButtonIcon.getAttribute('class')).toContain('glyphicon-minus');
-    expect(page.dpSignButtonIcon.getAttribute('class')).not.toContain('glyphicon-plus');
+    expect(page.dpSignButtonIcon.getAttribute('class')).toContain('bs-icon-minus');
+    expect(page.dpSignButtonIcon.getAttribute('class')).not.toContain('bs-icon-plus');
     expect(page.outputContainer.getText()).toBe('-P7Y3M2W4DT1H3M5S');
     expect(page.dpValueContainer.getText()).toBe('-P7Y3M2W4DT1H3M5S');
   });

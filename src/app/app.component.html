@@ -1,42 +1,52 @@
 <div class="container">
-  <div id="plain-binding" class="row">
-    <div class="col-xs-12">
-      <div class="h1">Plain binding</div>
+  <div id="plain-binding">
+    <div class="row">
+      <div class="col">
+        <div class="h1">Plain binding</div>
 
-      <ngx-duration-picker [(value)]="myValue" [disabled]="disabled"></ngx-duration-picker>
+        <ngx-duration-picker [(value)]="myValue" [disabled]="disabled"></ngx-duration-picker>
 
-    </div>
-    <div class="col-xs-6">
-      <div class="output alert alert-info">
-        {{ myValue }}
       </div>
-      <button
-        (click)="myValue = 'P7Y3M2W4DT1H3M5S'"
-        class="set-value btn btn-info"
-      >
-        Set to value 'P7Y3M2W4DT1H3M5S'
-      </button>
     </div>
-    <div class="col-xs-6">
-      <button (click)="disabled = !disabled" class="toggle btn btn-warning">Toggle Enable/Disable</button>
+    <div class="row">
+      <div class="col">
+        <div class="output alert alert-info">
+          {{ myValue }}
+        </div>
+      </div>
+      <div class="col">
+        <button
+          (click)="myValue = 'P7Y3M2W4DT1H3M5S'"
+          class="set-value btn btn-info"
+        >
+          Set to value 'P7Y3M2W4DT1H3M5S'
+        </button>
+      </div>
+      <div class="col">
+        <button (click)="disabled = !disabled" class="toggle btn btn-warning">Toggle Enable/Disable</button>
+      </div>
     </div>
   </div>
 
   <hr>
 
-  <div id="reactive-form" class="row">
-    <div class="col-xs-12">
-      <div class="h1">Reactive Form</div>
-      <form [formGroup]="form">
-        <ngx-duration-picker [formControlName]="'myDurationControl'"></ngx-duration-picker>
-      </form>
+  <div id="reactive-form">
+    <div class="row">
+      <div class="col">
+        <div class="h1">Reactive Form</div>
+        <form [formGroup]="form">
+          <ngx-duration-picker [formControlName]="'myDurationControl'"></ngx-duration-picker>
+        </form>
+      </div>
     </div>
 
     <div class="row">
-      <div class="col-xs-6">
+      <div class="col">
         <div class="output alert alert-info">
           {{ form.get('myDurationControl').value }}
         </div>
+      </div>
+      <div class="col">
         <button
           (click)="setControlToValue('P7Y3M2W4DT1H3M5S')"
           class="set-value btn btn-info"
@@ -45,17 +55,19 @@
         </button>
       </div>
 
-      <div class="col-xs-6">
+      <div class="col">
         <button (click)="toggleEnableDisableControl()" class="toggle btn btn-warning">Toggle Enable/Disable</button>
       </div>
 
     </div>
     <br>
     <div class="row">
-      <div class="col-xs-6">
+      <div class="col">
         <div class="touched-status alert alert-success">
           {{ form.get('myDurationControl').touched ? 'Touched' : 'Untouched' }}
         </div>
+      </div>
+      <div class="col">
         <button (click)="makeUntouched()" class="make-untouched btn btn-success">Make untouched</button>
       </div>
     </div>
@@ -63,17 +75,22 @@
 
   <hr>
 
-  <div id="negative-duration" class="row">
-      <div class="col-xs-12">
+  <div id="negative-duration">
+    <div class="row">
+      <div class="col">
         <div class="h1">Negative Duration</div>
 
         <ngx-duration-picker [(value)]="myNegativeValue" [options]="{ showNegative: showNegative }"></ngx-duration-picker>
 
       </div>
-      <div class="col-xs-6">
+    </div>
+    <div class="row">
+      <div class="col">
         <div class="output alert alert-info">
           {{ myNegativeValue }}
         </div>
+      </div>
+      <div class="col">
         <button
           (click)="myNegativeValue = '-P7Y3M2W4DT1H3M5S'"
           class="set-value btn btn-info"
@@ -82,18 +99,18 @@
         </button>
       </div>
 
-      <div class="col-xs-6">
-          <button
-            (click)="showNegative = !showNegative"
-            class="btn btn-warning"
-            id="toggle-negative"
-          >
-            <span *ngIf="!showNegative">Show </span>
-            <span *ngIf="showNegative">Hide </span>
-            Negative Durations</button>
-        </div>
+      <div class="col">
+        <button
+          (click)="showNegative = !showNegative"
+          class="btn btn-warning"
+          id="toggle-negative"
+        >
+          <span *ngIf="!showNegative">Show </span>
+          <span *ngIf="showNegative">Hide </span>
+          Negative Durations</button>
+      </div>
     </div>
-</div>
+  </div>
 
 
 
