@@ -1,6 +1,6 @@
 # ngx-duration-picker
 
-![ngx-duration-picker screenshot](https://s1.postimg.org/34fefss1yn/image.png)
+![ngx-duration-picker screenshot](https://i.postimg.cc/fRM3Y0z3/Screenshot_from_2018-09-18_17-01-28.png)
 
 A reusable [Angular](angular.io) duration-picker component that works with [ISO_8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 
