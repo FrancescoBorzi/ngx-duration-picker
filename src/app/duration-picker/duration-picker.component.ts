@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DurationPickerOptions } from './duration-picker';
 
 @Component({
-  selector: 'ngx-duration-picker',
+  selector: 'ngx-duration-picker',  // tslint:disable-line:component-selector
   templateUrl: './duration-picker.component.html',
   styleUrls: ['./duration-picker.component.scss'],
   providers: [
