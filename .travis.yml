@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- "10"
+dist: xenial
+sudo: required
+branches:
+  only:
+  - master
+before_script:
+- npm install -g @angular/cli
+script:
+- ng lint
+- ng test --watch=false --no-progress --browsers=ChromeHeadlessCI
+- ng e2e --protractor-config=protractor-ci.conf.js
+- ng build --prod
