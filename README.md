@@ -1,4 +1,7 @@
-# ngx-duration-picker
+[![Build Status](https://travis-ci.org/FrancescoBorzi/ngx-duration-picker.svg?branch=master)](https://travis-ci.org/FrancescoBorzi/ngx-duration-picker)
+[![npm version](https://badge.fury.io/js/ngx-duration-picker.svg)](https://badge.fury.io/js/ngx-duration-picker)
+
+# ngx-duration-picker 
 
 ![ngx-duration-picker screenshot](https://i.postimg.cc/fRM3Y0z3/Screenshot_from_2018-09-18_17-01-28.png)
 
