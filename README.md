@@ -2,7 +2,7 @@
 
 ![ngx-duration-picker screenshot](https://i.postimg.cc/fRM3Y0z3/Screenshot_from_2018-09-18_17-01-28.png)
 
-A reusable [Angular](angular.io) duration-picker component that works with [ISO_8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+A reusable [Angular](https://angular.io/) duration-picker component that works with [ISO_8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 
 Requires [Bootstrap](https://getbootstrap.com/), css only (no Bootstrap JS or jQuery needed).
 
