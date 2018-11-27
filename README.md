@@ -33,6 +33,12 @@ Requires [Bootstrap](https://getbootstrap.com/), css only (no Bootstrap JS or jQ
 export class AppModule { }
 ```
 
+## Local development
+
+- On one terminal tab run `ng build ngx-duration-picker --watch`. This will build the library sources (`projects/ngx-duration-picker/*`) and watch for changes.
+
+- On another terminal tab run `ng serve` to serve the demo app (`src/*`) and play with it.
+
 ## Usage
 
 ```<ngx-duration-picker [(value)]="myDuration"></ngx-duration-picker>```
