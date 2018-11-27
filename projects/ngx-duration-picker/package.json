@@ -1,6 +1,21 @@
 {
   "name": "ngx-duration-picker",
-  "version": "0.0.1",
+  "version": "3.0.1",
+  "description": "Angular component for ISO_8601 durations",
+  "keywords": [
+    "angular",
+    "duration",
+    "iso8601"
+  ],
+  "homepage": "https://github.com/FrancescoBorzi/ngx-duration-picker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancescoBorzi/ngx-duration-picker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FrancescoBorzi/ngx-duration-picker/issues"
+  },
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "*",
     "@angular/core": "*"
