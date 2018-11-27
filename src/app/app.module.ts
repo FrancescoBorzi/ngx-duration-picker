@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DurationPickerModule } from 'ngx-duration-picker';
+
 import { AppComponent } from './app.component';
-import { DurationPickerModule } from './duration-picker/duration-picker.module';
 
 @NgModule({
   declarations: [
