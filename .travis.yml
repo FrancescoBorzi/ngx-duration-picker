@@ -10,6 +10,6 @@ before_script:
 - npm install -g @angular/cli
 script:
 - npm run lint
+- npm run package
 - npm run test_lib_ci
 - npm run e2e_ci
-- npm run package
