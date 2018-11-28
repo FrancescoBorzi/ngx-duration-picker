@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/FrancescoBorzi/ngx-duration-picker.svg?branch=master)](https://travis-ci.org/FrancescoBorzi/ngx-duration-picker)
 [![npm version](https://badge.fury.io/js/ngx-duration-picker.svg)](https://badge.fury.io/js/ngx-duration-picker)
+[![dependencies Status](https://david-dm.org/francescoborzi/ngx-duration-picker/status.svg)](https://david-dm.org/francescoborzi/ngx-duration-picker)
+[![devDependencies Status](https://david-dm.org/francescoborzi/ngx-duration-picker/dev-status.svg)](https://david-dm.org/francescoborzi/ngx-duration-picker?type=dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # ngx-duration-picker 
