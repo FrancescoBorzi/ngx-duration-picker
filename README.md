@@ -1,8 +1,14 @@
-# ngx-duration-picker
+[![Build Status](https://travis-ci.org/FrancescoBorzi/ngx-duration-picker.svg?branch=master)](https://travis-ci.org/FrancescoBorzi/ngx-duration-picker)
+[![npm version](https://badge.fury.io/js/ngx-duration-picker.svg)](https://badge.fury.io/js/ngx-duration-picker)
+[![dependencies Status](https://david-dm.org/francescoborzi/ngx-duration-picker/status.svg)](https://david-dm.org/francescoborzi/ngx-duration-picker)
+[![devDependencies Status](https://david-dm.org/francescoborzi/ngx-duration-picker/dev-status.svg)](https://david-dm.org/francescoborzi/ngx-duration-picker?type=dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+# ngx-duration-picker 
 
 ![ngx-duration-picker screenshot](https://i.postimg.cc/fRM3Y0z3/Screenshot_from_2018-09-18_17-01-28.png)
 
-A reusable [Angular](angular.io) duration-picker component that works with [ISO_8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+A reusable [Angular](https://angular.io/) duration-picker component that works with [ISO_8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 
 Requires [Bootstrap](https://getbootstrap.com/), css only (no Bootstrap JS or jQuery needed).
 
@@ -28,6 +34,12 @@ Requires [Bootstrap](https://getbootstrap.com/), css only (no Bootstrap JS or jQ
 })
 export class AppModule { }
 ```
+
+## Local development
+
+- On one terminal tab run `ng build ngx-duration-picker --watch`. This will build the library sources (`projects/ngx-duration-picker/*`) and watch for changes.
+
+- On another terminal tab run `ng serve` to serve the demo app (`src/*`) and play with it.
 
 ## Usage
 
