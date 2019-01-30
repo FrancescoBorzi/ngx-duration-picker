@@ -113,7 +113,6 @@ describe('DurationPickerComponent', () => {
     expect(component.config.showWeeks).toBe(false);
     expect(component.config.showSeconds).toBe(true);
     expect(component.config.letters.months).toBe('Meses');
-    expect(component.config.letters.weeks).toBe('Weeks');
   });
 
   it('parse() should correctly parse the ISO8601 string', () => {
@@ -235,14 +234,5 @@ function set(
   component.minutes = minutes;
   component.seconds = seconds;
   component.config.showNegative = negative;
-  component.config.letters = {
-    years: 'Years',
-    months: 'Months',
-    weeks: 'Weeks',
-    days: 'Days',
-    hours: 'Hours',
-    minutes: 'Minutes',
-    seconds: 'Seconds',
-  };
   component.negative = negative;
 }
