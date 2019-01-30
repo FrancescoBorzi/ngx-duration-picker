@@ -235,5 +235,6 @@ function set(
   component.minutes = minutes;
   component.seconds = seconds;
   component.config.showNegative = negative;
+  component.config.letters = { weeks: 'Weeks' };
   component.negative = negative;
 }
