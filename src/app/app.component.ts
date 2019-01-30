@@ -14,6 +14,15 @@ export class AppComponent implements OnInit {
   disabled = false;
   form: FormGroup;
 
+  letters = {
+    years: 'Años',
+    months: 'Meses',
+    days: 'Días',
+    hours: 'Horas',
+    minutes: 'Minutos',
+    seconds: 'Segundos',
+  };
+
   ngOnInit() {
     this.form = new FormGroup({
       'myDurationControl': new FormControl(null),

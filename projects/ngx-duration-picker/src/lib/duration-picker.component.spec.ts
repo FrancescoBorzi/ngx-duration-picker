@@ -108,10 +108,12 @@ describe('DurationPickerComponent', () => {
   });
 
   it('setting the options should correctly affect the configuration', () => {
-    component.options = { showWeeks: false, showSeconds: true, someNonExistingProperty: 'test' };
+    component.options = { showWeeks: false, showSeconds: true, letters: { months: 'Meses' }, someNonExistingProperty: 'test' };
 
     expect(component.config.showWeeks).toBe(false);
     expect(component.config.showSeconds).toBe(true);
+    expect(component.config.letters.months).toBe('Meses');
+    expect(component.config.letters.weeks).toBe('Weeks');
   });
 
   it('parse() should correctly parse the ISO8601 string', () => {

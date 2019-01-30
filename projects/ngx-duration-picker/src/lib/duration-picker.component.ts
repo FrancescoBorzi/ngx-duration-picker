@@ -70,6 +70,15 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     showMinutes : true,
     showSeconds : true,
     zeroValue   : 'PT0S',
+    letters : {
+      years:   '',
+      months:  '',
+      weeks:   '',
+      days:    '',
+      hours:   '',
+      minutes: '',
+      seconds: '',
+    }
   };
 
   get negative() { return this._negative; }
@@ -135,6 +144,7 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
   ngOnInit() {
     this.parse();
     this.value = this.generate();
+    this.setLetters(this.config.letters);
   }
 
   registerOnChange(fn) {
@@ -167,7 +177,7 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
       return;
     }
 
-    this._negative  = match[0].startsWith('-');
+    this._negative = match[0].startsWith('-');
     this._years    = this.parseNumber(match[1]);
     this._months   = this.parseNumber(match[2]);
     this._weeks    = this.parseNumber(match[3]);
@@ -240,5 +250,15 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
         (this.config)[param] = options[param];
       }
     });
+  }
+
+  setLetters(letters: any): void {
+    if ( !this.config.letters.years ) { this.config.letters.years = 'Years'; }
+    if ( !this.config.letters.months ) { this.config.letters.months = 'Months'; }
+    if ( !this.config.letters.weeks ) { this.config.letters.weeks = 'Weeks'; }
+    if ( !this.config.letters.days ) { this.config.letters.days = 'Days'; }
+    if ( !this.config.letters.hours ) { this.config.letters.hours = 'Hours'; }
+    if ( !this.config.letters.minutes ) { this.config.letters.minutes = 'Minutes'; }
+    if ( !this.config.letters.seconds ) { this.config.letters.seconds = 'Seconds'; }
   }
 }

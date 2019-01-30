@@ -11,4 +11,13 @@ export interface DurationPickerOptions {
   showMinutes: boolean;
   showSeconds: boolean;
   zeroValue: string | null;
+  letters: {
+    years: string,
+    months: string,
+    weeks: string,
+    days: string,
+    hours: string,
+    minutes: string,
+    seconds: string,
+  };
 }

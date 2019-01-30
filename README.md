@@ -4,7 +4,7 @@
 [![devDependencies Status](https://david-dm.org/francescoborzi/ngx-duration-picker/dev-status.svg)](https://david-dm.org/francescoborzi/ngx-duration-picker?type=dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# ngx-duration-picker 
+# ngx-duration-picker
 
 ![ngx-duration-picker screenshot](https://i.postimg.cc/fRM3Y0z3/Screenshot_from_2018-09-18_17-01-28.png)
 
@@ -77,6 +77,21 @@ Boolean, default `true`. Shows a preview of the value.
 
 #### showLetters
 Boolean, default `true`. Shows the letters on top (Y, M, W, D, H, M, S)
+
+#### letters
+Object, default
+```
+{
+  years:   'Years',
+  months:  'Months',
+  weeks:   'Weeks',
+  days:    'Days',
+  hours:   'Hours',
+  minutes: 'Minutes',
+  seconds: 'Seconds',
+}
+```
+Changes the letters on top.
 
 #### showYears
 Boolean, default `true`. Shows the years, when hidden it will be always considered as 0.

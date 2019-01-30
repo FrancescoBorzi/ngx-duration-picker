@@ -3,13 +3,13 @@
 
   <tr *ngIf="config.showLetters">
     <td *ngIf="config.showNegative"></td>
-    <td *ngIf="config.showYears">Y</td>
-    <td *ngIf="config.showMonths">M</td>
-    <td *ngIf="config.showWeeks">W</td>
-    <td *ngIf="config.showDays">D</td>
-    <td *ngIf="config.showHours">H</td>
-    <td *ngIf="config.showMinutes">M</td>
-    <td *ngIf="config.showSeconds">S</td>
+    <td *ngIf="config.showYears" title="{{ config.letters.years }}">{{ config.letters.years | uppercase | slice:0:1 }}</td>
+    <td *ngIf="config.showMonths" title="{{ config.letters.months }}">{{ config.letters.months | uppercase | slice:0:1 }}</td>
+    <td *ngIf="config.showWeeks" title="{{ config.letters.weeks }}">{{ config.letters.weeks | uppercase | slice:0:1 }}</td>
+    <td *ngIf="config.showDays" title="{{ config.letters.days }}">{{ config.letters.days | uppercase | slice:0:1 }}</td>
+    <td *ngIf="config.showHours" title="{{ config.letters.hours }}">{{ config.letters.hours | uppercase | slice:0:1 }}</td>
+    <td *ngIf="config.showMinutes" title="{{ config.letters.minutes }}">{{ config.letters.minutes | uppercase | slice:0:1 }}</td>
+    <td *ngIf="config.showSeconds" title="{{ config.letters.seconds }}">{{ config.letters.seconds | uppercase | slice:0:1 }}</td>
   </tr>
 
   <tr *ngIf="config.showButtons">
