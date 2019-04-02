@@ -1,6 +1,6 @@
 {
   "name": "ngx-duration-picker",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Angular component for ISO_8601 durations",
   "keywords": [
     "angular",
