@@ -152,7 +152,10 @@
           "options": {
             "main": "projects/ngx-duration-picker/src/test.ts",
             "tsConfig": "projects/ngx-duration-picker/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-duration-picker/karma.conf.js"
+            "karmaConfig": "projects/ngx-duration-picker/karma.conf.js",
+            "styles": [
+              "src/assets/main.scss"
+            ]
           }
         },
         "lint": {
