@@ -52,7 +52,7 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
   private _years    = 0;
   private _months   = 0;
   private _weeks    = 0;
-  private _days     = 0 ;
+  private _days     = 0;
   private _hours    = 0;
   private _minutes  = 0;
   private _seconds  = 0;
@@ -70,7 +70,23 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     showMinutes : true,
     showSeconds : true,
     zeroValue   : 'PT0S',
+    previewFormat: 'ISO',
   };
+
+  get preview(): string {
+    if (!this.config.previewFormat || this.config.previewFormat.length === 0 || this.config.previewFormat === 'ISO') {
+      return this.value;
+    }
+
+    return this.config.previewFormat
+      .replace('{{y}}', `${this.years}`)
+      .replace('{{m}}', `${this.months}`)
+      .replace('{{w}}', `${this.weeks}`)
+      .replace('{{d}}', `${this.days}`)
+      .replace('{{h}}', `${this.hours}`)
+      .replace('{{min}}', `${this.minutes}`)
+      .replace('{{s}}', `${this.seconds}`);
+  }
 
   get negative() { return this._negative; }
   set negative(value) {

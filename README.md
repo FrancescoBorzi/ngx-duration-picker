@@ -75,6 +75,20 @@ Boolean, default `true`. Shows the up and down buttons.
 #### showPreview
 Boolean, default `true`. Shows a preview of the value.
 
+#### previewFormat
+String, default `ISO`.
+
+String with any number of specified parameters which will be replaced with values. Use:
+- `{{y}}` for years
+- `{{m}}` for months
+- `{{w}}` for weeks
+- `{{d}}` for days
+- `{{h}}` for hours
+- `{{min}}` for minutes
+- `{{s}}` for seconds
+
+Example string: `{{h}} hours : {{min}} minutes : {{s}} seconds`
+
 #### showLetters
 Boolean, default `true`. Shows the letters on top (Y, M, W, D, H, M, S)
 

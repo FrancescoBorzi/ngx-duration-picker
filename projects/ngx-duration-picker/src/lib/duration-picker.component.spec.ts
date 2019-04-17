@@ -212,6 +212,28 @@ describe('DurationPickerComponent', () => {
 
     expect(component.value).toEqual('old value');
   });
+
+  it('preview should return proper string', () => {
+    const previewFormat = '{{h}} hours : {{min}} minutes : {{s}} seconds';
+    const hours = 5;
+    const minutes = 32;
+    const seconds = 53;
+    const expectedPreview = `${hours} hours : ${minutes} minutes : ${seconds} seconds`;
+    set(component, 0, 0, 0, 0, hours, minutes, seconds, false, previewFormat);
+
+    expect(component.preview).toEqual(expectedPreview);
+  });
+
+  it('preview should return ISO value as string when provided previewFormat is empty string', () => {
+    const previewFormat = '';
+    const hours = 5;
+    const minutes = 32;
+    const seconds = 53;
+    const expectedPreview = `PT${hours}H${minutes}M${seconds}S`;
+    set(component, 0, 0, 0, 0, hours, minutes, seconds, false, previewFormat);
+
+    expect(component.preview).toEqual(expectedPreview);
+  });
 });
 
 function set(
@@ -223,7 +245,8 @@ function set(
   hours,
   minutes,
   seconds,
-  negative = false
+  negative = false,
+  previewFormat = 'ISO',
 ) {
   component.years = years;
   component.months = months;
@@ -234,4 +257,5 @@ function set(
   component.seconds = seconds;
   component.config.showNegative = negative;
   component.negative = negative;
+  component.config.previewFormat = previewFormat;
 }
