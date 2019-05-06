@@ -3,6 +3,7 @@
 export const PLAIN_BINDING_WRAPPER = '#plain-binding';
 export const REACTIVE_FORM_WRAPPER = '#reactive-form';
 export const NEGATIVE_DURATION_WRAPPER = '#negative-duration';
+export const PREVIEW_FORMAT_WRAPPER = '#preview-format';
 
 export const DURATION_PICKER = 'ngx-duration-picker';
 
@@ -40,6 +41,12 @@ export const DP_SECONDS_INPUT = '#dp-seconds';
 export const DP_VALUE = '#dp-duration-value';
 export const DP_SIGN = '#dp-sign';
 
+export const PREVIEW_FORMAT_INPUT = '#preview-format-input';
+
 /* Texts */
 export const TOUCHED_TEXT = 'Touched';
 export const UNTOUCHED_TEXT = 'Untouched';
+export const DEFAULT_PREVIEW_FORMAT = '{{y}} years, {{m}} months, {{w}} weeks, {{d}} days, {{h}} hours, {{min}} minutes, {{s}} seconds';
+export const DEFAULT_PREVIEW_VALUE = '0 years, 0 months, 0 weeks, 2 days, 1 hours, 3 minutes, 2 seconds';
+export const CHANGED_PREVIEW_FORMAT = '{{h}} hours : {{min}} minutes : {{s}} seconds';
+export const CHANGED_PREVIEW_VALUE = '1 hours : 3 minutes : 2 seconds';
