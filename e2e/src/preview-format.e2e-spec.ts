@@ -17,14 +17,7 @@ describe('Preview Format (specific checks)', () => {
     page = new WrapperPageObject(PREVIEW_FORMAT_WRAPPER);
     await page.navigateTo();
 
-    page.dpDaysArrowUp.click();
-    page.dpDaysArrowUp.click();
-    page.dpHoursArrowUp.click();
-    page.dpMinutesArrowUp.click();
-    page.dpMinutesArrowUp.click();
-    page.dpMinutesArrowUp.click();
-    page.dpSecondsArrowUp.click();
-    page.dpSecondsArrowUp.click();
+    page.setValueButton.click();
   });
 
   it('should show correct values in preview', () => {

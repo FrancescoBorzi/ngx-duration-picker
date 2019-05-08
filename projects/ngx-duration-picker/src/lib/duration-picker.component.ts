@@ -79,12 +79,12 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     }
 
     return this.config.previewFormat
-      .replace('{{y}}', `${this.years}`)
-      .replace('{{m}}', `${this.months}`)
-      .replace('{{w}}', `${this.weeks}`)
-      .replace('{{d}}', `${this.days}`)
+      .replace('{{Y}}', `${this.years}`)
+      .replace('{{M}}', `${this.months}`)
+      .replace('{{W}}', `${this.weeks}`)
+      .replace('{{D}}', `${this.days}`)
       .replace('{{h}}', `${this.hours}`)
-      .replace('{{min}}', `${this.minutes}`)
+      .replace('{{m}}', `${this.minutes}`)
       .replace('{{s}}', `${this.seconds}`);
   }
 

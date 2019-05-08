@@ -214,7 +214,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('preview should return proper string', () => {
-    const previewFormat = '{{h}} hours : {{min}} minutes : {{s}} seconds';
+    const previewFormat = '{{h}} hours : {{m}} minutes : {{s}} seconds';
     const hours = 5;
     const minutes = 32;
     const seconds = 53;

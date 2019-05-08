@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   mySecondValue;
   myNegativeValue;
   showNegative = true;
-  previewFormat = '{{y}} years, {{m}} months, {{w}} weeks, {{d}} days, {{h}} hours, {{min}} minutes, {{s}} seconds';
+  previewFormat = '{{Y}} years, {{M}} months, {{W}} weeks, {{D}} days, {{h}} hours, {{m}} minutes, {{s}} seconds';
   disabled = false;
   form: FormGroup;
 
