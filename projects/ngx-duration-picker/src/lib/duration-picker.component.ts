@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DurationPickerOptions } from './duration-picker';
 
 @Component({
-  selector: 'ngx-duration-picker',
+  selector: 'ngx-duration-picker',  // tslint:disable-line:component-selector
   templateUrl: './duration-picker.component.html',
   styleUrls: ['./duration-picker.component.scss'],
   providers: [
@@ -52,7 +52,7 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
   private _years    = 0;
   private _months   = 0;
   private _weeks    = 0;
-  private _days     = 0 ;
+  private _days     = 0;
   private _hours    = 0;
   private _minutes  = 0;
   private _seconds  = 0;
@@ -70,7 +70,23 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     showMinutes : true,
     showSeconds : true,
     zeroValue   : 'PT0S',
+    previewFormat: 'ISO',
   };
+
+  get preview(): string {
+    if (!this.config.previewFormat || this.config.previewFormat.length === 0 || this.config.previewFormat === 'ISO') {
+      return this.value;
+    }
+
+    return this.config.previewFormat
+      .replace('{{Y}}', `${this.years}`)
+      .replace('{{M}}', `${this.months}`)
+      .replace('{{W}}', `${this.weeks}`)
+      .replace('{{D}}', `${this.days}`)
+      .replace('{{h}}', `${this.hours}`)
+      .replace('{{m}}', `${this.minutes}`)
+      .replace('{{s}}', `${this.seconds}`);
+  }
 
   get negative() { return this._negative; }
   set negative(value) {

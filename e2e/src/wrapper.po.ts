@@ -30,7 +30,8 @@ import {
   DP_SECONDS_INPUT,
   DP_VALUE,
   DP_SIGN,
-  TOGGLE_NEGATIVE_BUTTON
+  TOGGLE_NEGATIVE_BUTTON,
+  PREVIEW_FORMAT_INPUT,
 } from './constants';
 
 export class WrapperPageObject {
@@ -72,6 +73,8 @@ export class WrapperPageObject {
   dpSignButton: ElementFinder;
   dpSignButtonIcon: ElementFinder;
 
+  previewFormatInput: ElementFinder;
+
   constructor(wrapperSelector: string) {
     this.wrapper = $(wrapperSelector);
 
@@ -82,6 +85,7 @@ export class WrapperPageObject {
     this.touchedStatusContainer = this.wrapper.$(TOUCHED_STATUS);
     this.makeUntouchedButton = this.wrapper.$(MAKE_UNTOUCHED_BUTTON);
     this.toggleNegativeButton = this.wrapper.$(TOGGLE_NEGATIVE_BUTTON);
+    this.previewFormatInput = this.wrapper.$(PREVIEW_FORMAT_INPUT);
 
     this.dpYearsArrowUp = this.durationPicker.$(DP_YEARS_ARROW_UP);
     this.dpMonthsArrowUp = this.durationPicker.$(DP_MONTHS_ARROW_UP);

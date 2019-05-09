@@ -80,7 +80,9 @@
       <div class="col">
         <div class="h1">Negative Duration</div>
 
-        <ngx-duration-picker [(value)]="myNegativeValue" [options]="{ showNegative: showNegative }"></ngx-duration-picker>
+        <ngx-duration-picker [(value)]="myNegativeValue"
+                             [options]="{ showNegative: showNegative }"
+        ></ngx-duration-picker>
 
       </div>
     </div>
@@ -107,10 +109,45 @@
         >
           <span *ngIf="!showNegative">Show </span>
           <span *ngIf="showNegative">Hide </span>
-          Negative Durations</button>
+          Negative Durations
+        </button>
       </div>
     </div>
   </div>
 
+  <hr>
 
+  <div id="preview-format">
+    <div class="row">
+      <div class="col">
+        <div class="h1">Preview Format</div>
 
+        <ngx-duration-picker [(value)]="mySecondValue"
+                             [options]="{ previewFormat: previewFormat }"
+        ></ngx-duration-picker>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="output alert alert-info">
+          {{ mySecondValue }}
+        </div>
+      </div>
+      <div class="col-8">
+        <button
+          (click)="mySecondValue = 'P7Y3M2W4DT1H3M5S'"
+          class="set-value btn btn-info"
+        >
+          Set to value 'P7Y3M2W4DT1H3M5S'
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="preview-format-input">Preview format:</label>
+        <input id="preview-format-input" [(ngModel)]="previewFormat" type="text"/>
+      </div>
+    </div>
+  </div>
+</div>

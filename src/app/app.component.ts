@@ -9,8 +9,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class AppComponent implements OnInit {
 
   myValue;
+  mySecondValue;
   myNegativeValue;
   showNegative = true;
+  previewFormat = '{{Y}} years, {{M}} months, {{W}} weeks, {{D}} days, {{h}} hours, {{m}} minutes, {{s}} seconds';
   disabled = false;
   form: FormGroup;
 
