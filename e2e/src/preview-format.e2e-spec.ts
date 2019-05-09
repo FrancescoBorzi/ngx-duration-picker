@@ -1,18 +1,16 @@
 import { WrapperPageObject } from './wrapper.po';
-import {
-  CHANGED_PREVIEW_FORMAT,
-  CHANGED_PREVIEW_VALUE,
-  DEFAULT_PREVIEW_FORMAT,
-  DEFAULT_PREVIEW_VALUE,
-  PREVIEW_FORMAT_WRAPPER
-} from './constants';
+import { PREVIEW_FORMAT_WRAPPER } from './constants';
 
 
 /* Specific checks performed against the "Preview Format" duration picker */
-
-let page: WrapperPageObject;
-
 describe('Preview Format (specific checks)', () => {
+  const DEFAULT_PREVIEW_FORMAT = '{{Y}} years, {{M}} months, {{W}} weeks, {{D}} days, {{h}} hours, {{m}} minutes, {{s}} seconds';
+  const DEFAULT_PREVIEW_VALUE = '7 years, 3 months, 2 weeks, 4 days, 1 hours, 3 minutes, 5 seconds';
+  const CHANGED_PREVIEW_FORMAT = '{{h}} hours : {{m}} minutes : {{s}} seconds';
+  const CHANGED_PREVIEW_VALUE = '1 hours : 3 minutes : 5 seconds';
+
+  let page: WrapperPageObject;
+
   beforeEach(async () => {
     page = new WrapperPageObject(PREVIEW_FORMAT_WRAPPER);
     await page.navigateTo();

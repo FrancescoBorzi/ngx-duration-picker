@@ -3,12 +3,11 @@ import { PLAIN_BINDING_WRAPPER, REACTIVE_FORM_WRAPPER } from './constants';
 
 /* Generic checks performed against the "Plain binding" and the "Reactive Form" duration pickers */
 
-let page: WrapperPageObject;
-
 [
   { selector: PLAIN_BINDING_WRAPPER, title: 'Plain Binding'},
   { selector: REACTIVE_FORM_WRAPPER, title: 'Reactive Form'},
 ].forEach(({ selector, title }) => {
+  let page: WrapperPageObject;
 
   describe(`${title} (generic checks)`, () => {
     beforeEach(() => {

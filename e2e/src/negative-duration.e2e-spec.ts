@@ -3,10 +3,9 @@ import { NEGATIVE_DURATION_WRAPPER } from './constants';
 
 
 /* Specific checks performed against the "Negative Duration" duration picker */
-
-let page: WrapperPageObject;
-
 describe('Negative Duration (specific checks)', () => {
+  let page: WrapperPageObject;
+
   beforeEach(() => {
     page = new WrapperPageObject(NEGATIVE_DURATION_WRAPPER);
     page.navigateTo();

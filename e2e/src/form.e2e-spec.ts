@@ -1,12 +1,10 @@
 import { WrapperPageObject } from './wrapper.po';
 import { REACTIVE_FORM_WRAPPER, TOUCHED_TEXT, UNTOUCHED_TEXT } from './constants';
 
-
 /* Form-specific checks performed against the "Reactive Form" duration picker */
-
-let page: WrapperPageObject;
-
 describe('Reactive Form (form-related checks)', () => {
+  let page: WrapperPageObject;
+
   beforeEach(() => {
     page = new WrapperPageObject(REACTIVE_FORM_WRAPPER);
     page.navigateTo();

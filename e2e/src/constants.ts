@@ -46,7 +46,3 @@ export const PREVIEW_FORMAT_INPUT = '#preview-format-input';
 /* Texts */
 export const TOUCHED_TEXT = 'Touched';
 export const UNTOUCHED_TEXT = 'Untouched';
-export const DEFAULT_PREVIEW_FORMAT = '{{Y}} years, {{M}} months, {{W}} weeks, {{D}} days, {{h}} hours, {{m}} minutes, {{s}} seconds';
-export const DEFAULT_PREVIEW_VALUE = '7 years, 3 months, 2 weeks, 4 days, 1 hours, 3 minutes, 5 seconds';
-export const CHANGED_PREVIEW_FORMAT = '{{h}} hours : {{m}} minutes : {{s}} seconds';
-export const CHANGED_PREVIEW_VALUE = '1 hours : 3 minutes : 5 seconds';
