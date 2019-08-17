@@ -234,6 +234,67 @@ describe('DurationPickerComponent', () => {
 
     expect(component.preview).toEqual(expectedPreview);
   });
+
+  it('valueInSeconds should return correct value for each duration unit', () => {
+    const minuteInSeconds = 60;
+    const hourInSeconds = 3600;
+    const dayInSeconds = 86400;
+    const weekInSeconds = 6048000;
+    const monthInSeconds = 25920000;
+    const yearInSeconds = 315360000;
+
+    set(component, 0, 0, 0, 0, 0, 0, 1, false, '', 'seconds');
+    expect(component.valueInSeconds).toEqual(1);
+
+    set(component, 0, 0, 0, 0, 0, 1, 0, false, '', 'seconds');
+    expect(component.valueInSeconds).toEqual(minuteInSeconds);
+
+    set(component, 0, 0, 0, 0, 1, 0, 0, false, '', 'seconds');
+    expect(component.valueInSeconds).toEqual(hourInSeconds);
+
+    set(component, 0, 0, 0, 1, 0, 0, 0, false, '', 'seconds');
+    expect(component.valueInSeconds).toEqual(dayInSeconds);
+
+    set(component, 0, 0, 1, 0, 0, 0, 0, false, '', 'seconds');
+    expect(component.valueInSeconds).toEqual(weekInSeconds);
+
+    set(component, 0, 1, 0, 0, 0, 0, 0, false, '', 'seconds');
+    expect(component.valueInSeconds).toEqual(monthInSeconds);
+
+    set(component, 1, 0, 0, 0, 0, 0, 0, false, '', 'seconds');
+    expect(component.valueInSeconds).toEqual(yearInSeconds);
+  });
+
+  it('valueInMilliseconds should return correct value for each duration unit', () => {
+    const secondInMilliseconds = 1000;
+    const minuteInMilliseconds = 60000;
+    const hourInMilliseconds = 3600000;
+    const dayInMilliseconds = 86400000;
+    const weekInMilliseconds = 6048000000;
+    const monthInMilliseconds = 25920000000;
+    const yearInMilliseconds = 315360000000;
+
+    set(component, 0, 0, 0, 0, 0, 0, 1, false, '', 'seconds');
+    expect(component.valueInMilliseconds).toEqual(secondInMilliseconds);
+
+    set(component, 0, 0, 0, 0, 0, 1, 0, false, '', 'seconds');
+    expect(component.valueInMilliseconds).toEqual(minuteInMilliseconds);
+
+    set(component, 0, 0, 0, 0, 1, 0, 0, false, '', 'seconds');
+    expect(component.valueInMilliseconds).toEqual(hourInMilliseconds);
+
+    set(component, 0, 0, 0, 1, 0, 0, 0, false, '', 'seconds');
+    expect(component.valueInMilliseconds).toEqual(dayInMilliseconds);
+
+    set(component, 0, 0, 1, 0, 0, 0, 0, false, '', 'seconds');
+    expect(component.valueInMilliseconds).toEqual(weekInMilliseconds);
+
+    set(component, 0, 1, 0, 0, 0, 0, 0, false, '', 'seconds');
+    expect(component.valueInMilliseconds).toEqual(monthInMilliseconds);
+
+    set(component, 1, 0, 0, 0, 0, 0, 0, false, '', 'seconds');
+    expect(component.valueInMilliseconds).toEqual(yearInMilliseconds);
+  });
 });
 
 function set(
@@ -247,6 +308,7 @@ function set(
   seconds,
   negative = false,
   previewFormat = 'ISO',
+  customOutputFormat = 'ISO',
 ) {
   component.years = years;
   component.months = months;
@@ -258,4 +320,5 @@ function set(
   component.config.showNegative = negative;
   component.negative = negative;
   component.config.previewFormat = previewFormat;
+  component.config.customOutputFormat = customOutputFormat;
 }

@@ -89,6 +89,16 @@ You can optionally specify a date format using:
 
 Example string: `{{h}} hours : {{m}} minutes : {{s}} seconds`
 
+#### customOutputFormat
+String, default `ISO`.
+
+You can optionally specify:
+- `timestamp` for duration in milliseconds
+- `seconds` for duration in seconds
+- custom string as described in `previewFormat` option
+
+Chosen value will be emitted by `customOutput`.
+
 #### showLetters
 Boolean, default `true`. Shows the letters on top (Y, M, W, D, H, M, S)
 

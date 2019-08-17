@@ -31,9 +31,11 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
   set value(value: string) {
     this._value = value;
     this.parse();
+    this.emitCustomOutput();
   }
 
   @Output() valueChange = new EventEmitter<string>();
+  @Output() customOutput = new EventEmitter<string | number>();
 
   private _disabled = false;
 
@@ -71,6 +73,7 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     showSeconds : true,
     zeroValue   : 'PT0S',
     previewFormat: 'ISO',
+    customOutputFormat: 'ISO',
   };
 
   get preview(): string {
@@ -78,14 +81,7 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
       return this.value;
     }
 
-    return this.config.previewFormat
-      .replace('{{Y}}', `${this.years}`)
-      .replace('{{M}}', `${this.months}`)
-      .replace('{{W}}', `${this.weeks}`)
-      .replace('{{D}}', `${this.days}`)
-      .replace('{{h}}', `${this.hours}`)
-      .replace('{{m}}', `${this.minutes}`)
-      .replace('{{s}}', `${this.seconds}`);
+    return this.injectValuesIntoString(this.config.previewFormat);
   }
 
   get negative() { return this._negative; }
@@ -143,6 +139,20 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     this.emitNewValue();
   }
 
+  get valueInSeconds() {
+    return this.seconds +
+      this.minutes * 60 +
+      this.hours * 3600 +
+      this.days * 86400 +
+      this.weeks * 6048000 +
+      this.months * 25920000 +
+      this.years * 315360000;
+  }
+
+  get valueInMilliseconds() {
+    return this.valueInSeconds * 1000;
+  }
+
   onChange = (_: any) => {};
   onTouched = () => {};
 
@@ -183,7 +193,7 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
       return;
     }
 
-    this._negative  = match[0].startsWith('-');
+    this._negative = match[0].startsWith('-');
     this._years    = this.parseNumber(match[1]);
     this._months   = this.parseNumber(match[2]);
     this._weeks    = this.parseNumber(match[3]);
@@ -242,11 +252,38 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     return output;
   }
 
+  injectValuesIntoString(text: string) {
+    return text
+      .replace('{{Y}}', `${this.years}`)
+      .replace('{{M}}', `${this.months}`)
+      .replace('{{W}}', `${this.weeks}`)
+      .replace('{{D}}', `${this.days}`)
+      .replace('{{h}}', `${this.hours}`)
+      .replace('{{m}}', `${this.minutes}`)
+      .replace('{{s}}', `${this.seconds}`);
+  }
+
   emitNewValue() {
     this.value = this.generate();
     this.valueChange.emit(this.value);
+    this.emitCustomOutput();
     this.onTouched();
     this.onChange(this.value);
+  }
+
+  emitCustomOutput() {
+    let customOutput: string | number = this.value;
+
+    if (this.config.customOutputFormat && this.config.customOutputFormat.length > 0) {
+      switch (this.config.customOutputFormat) {
+        case 'ISO': break;
+        case 'timestamp': customOutput = this.valueInMilliseconds; break;
+        case 'seconds': customOutput = this.valueInSeconds; break;
+        default: this.injectValuesIntoString(this.config.customOutputFormat);
+      }
+    }
+
+    this.customOutput.emit(customOutput);
   }
 
   // Attach all the changes received in the options object
