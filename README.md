@@ -102,6 +102,18 @@ Chosen value will be emitted by `customOutput`.
 #### showLetters
 Boolean, default `true`. Shows the letters on top (Y, M, W, D, H, M, S)
 
+#### labels
+Object, accepting labels that should be shown above the fields instead of default letters (`showLetters` have to be set to true).
+
+Available fields:
+- years
+- months
+- weeks
+- days
+- hours
+- minutes
+- seconds
+
 #### showYears
 Boolean, default `true`. Shows the years, when hidden it will be always considered as 0.
 

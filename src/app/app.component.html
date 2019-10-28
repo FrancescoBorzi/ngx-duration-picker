@@ -150,4 +150,48 @@
       </div>
     </div>
   </div>
+
+  <hr>
+
+  <div id="configurable-labels">
+    <div class="row">
+      <div class="col">
+        <div class="h1">Configurable Labels</div>
+
+        <ngx-duration-picker [(value)]="myThirdValue"
+                             [options]="{ labels: { years: yearsLabel, weeks: weeksLabel, hours: hoursLabel } }"
+        ></ngx-duration-picker>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="output alert alert-info">
+          {{ myThirdValue }}
+        </div>
+      </div>
+      <div class="col-8">
+        <button
+          (click)="myThirdValue = 'P7Y3M2W4DT1H3M5S'"
+          class="set-value btn btn-info"
+        >
+          Set to value 'P7Y3M2W4DT1H3M5S'
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="years-label-input">Years label:</label>
+        <input id="years-label-input" [(ngModel)]="yearsLabel" type="text"/>
+      </div>
+      <div class="col">
+        <label for="weeks-label-input">Weeks label:</label>
+        <input id="weeks-label-input" [(ngModel)]="weeksLabel" type="text"/>
+      </div>
+      <div class="col">
+        <label for="hours-label-input">Hours label:</label>
+        <input id="hours-label-input" [(ngModel)]="hoursLabel" type="text"/>
+      </div>
+    </div>
+  </div>
 </div>

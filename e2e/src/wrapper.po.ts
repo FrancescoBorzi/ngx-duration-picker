@@ -32,6 +32,16 @@ import {
   DP_SIGN,
   TOGGLE_NEGATIVE_BUTTON,
   PREVIEW_FORMAT_INPUT,
+  DP_YEARS_LABEL,
+  DP_MONTHS_LABEL,
+  DP_WEEKS_LABEL,
+  DP_DAYS_LABEL,
+  DP_HOURS_LABEL,
+  DP_MINUTES_LABEL,
+  DP_SECONDS_LABEL,
+  DP_YEARS_LABEL_INPUT,
+  DP_WEEKS_LABEL_INPUT,
+  DP_HOURS_LABEL_INPUT,
 } from './constants';
 
 export class WrapperPageObject {
@@ -69,11 +79,22 @@ export class WrapperPageObject {
   dpMinutesInput: ElementFinder;
   dpSecondsInput: ElementFinder;
 
+  dpYearsLabel: ElementFinder;
+  dpMonthsLabel: ElementFinder;
+  dpWeeksLabel: ElementFinder;
+  dpDaysLabel: ElementFinder;
+  dpHoursLabel: ElementFinder;
+  dpMinutesLabel: ElementFinder;
+  dpSecondsLabel: ElementFinder;
+
   dpValueContainer: ElementFinder;
   dpSignButton: ElementFinder;
   dpSignButtonIcon: ElementFinder;
 
   previewFormatInput: ElementFinder;
+  dpYearsLabelInput: ElementFinder;
+  dpWeeksLabelInput: ElementFinder;
+  dpHoursLabelInput: ElementFinder;
 
   constructor(wrapperSelector: string) {
     this.wrapper = $(wrapperSelector);
@@ -86,6 +107,9 @@ export class WrapperPageObject {
     this.makeUntouchedButton = this.wrapper.$(MAKE_UNTOUCHED_BUTTON);
     this.toggleNegativeButton = this.wrapper.$(TOGGLE_NEGATIVE_BUTTON);
     this.previewFormatInput = this.wrapper.$(PREVIEW_FORMAT_INPUT);
+    this.dpYearsLabelInput = this.wrapper.$(DP_YEARS_LABEL_INPUT);
+    this.dpWeeksLabelInput = this.wrapper.$(DP_WEEKS_LABEL_INPUT);
+    this.dpHoursLabelInput = this.wrapper.$(DP_HOURS_LABEL_INPUT);
 
     this.dpYearsArrowUp = this.durationPicker.$(DP_YEARS_ARROW_UP);
     this.dpMonthsArrowUp = this.durationPicker.$(DP_MONTHS_ARROW_UP);
@@ -110,6 +134,14 @@ export class WrapperPageObject {
     this.dpHoursInput = this.durationPicker.$(DP_HOURS_INPUT);
     this.dpMinutesInput = this.durationPicker.$(DP_MINUTES_INPUT);
     this.dpSecondsInput = this.durationPicker.$(DP_SECONDS_INPUT);
+
+    this.dpYearsLabel = this.durationPicker.$(DP_YEARS_LABEL);
+    this.dpMonthsLabel = this.durationPicker.$(DP_MONTHS_LABEL);
+    this.dpWeeksLabel = this.durationPicker.$(DP_WEEKS_LABEL);
+    this.dpDaysLabel = this.durationPicker.$(DP_DAYS_LABEL);
+    this.dpHoursLabel = this.durationPicker.$(DP_HOURS_LABEL);
+    this.dpMinutesLabel = this.durationPicker.$(DP_MINUTES_LABEL);
+    this.dpSecondsLabel = this.durationPicker.$(DP_SECONDS_LABEL);
 
     this.dpValueContainer = this.durationPicker.$(DP_VALUE);
     this.dpSignButton = this.durationPicker.$(DP_SIGN);

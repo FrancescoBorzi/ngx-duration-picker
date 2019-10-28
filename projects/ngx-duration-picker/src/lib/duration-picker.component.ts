@@ -74,6 +74,15 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
     zeroValue   : 'PT0S',
     previewFormat: 'ISO',
     customOutputFormat: 'ISO',
+    labels: {
+      years: 'Y',
+      months: 'M',
+      weeks: 'W',
+      days: 'D',
+      hours: 'H',
+      minutes: 'M',
+      seconds: 'S',
+    },
   };
 
   get preview(): string {
@@ -290,7 +299,14 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
   attachChanges(options: any): void {
     Object.keys(options).forEach(param => {
       if (this.config.hasOwnProperty(param)) {
-        (this.config)[param] = options[param];
+        if (typeof (this.config)[param] === 'object') {
+          (this.config)[param] = {
+            ...(this.config)[param],
+            ...options[param]
+          };
+        } else {
+          (this.config)[param] = options[param];
+        }
       }
     });
   }
