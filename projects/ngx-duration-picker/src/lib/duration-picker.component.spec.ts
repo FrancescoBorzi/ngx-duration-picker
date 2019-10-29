@@ -297,7 +297,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('specific labels should be overwritten', () => {
-    set(component, 0, 0, 0, 0, 0, 0, 1, false, '', '', {years: 'years', weeks: 'weeks', hours: 'hours'});
+    set(component, 0, 0, 0, 0, 0, 0, 1, false, '', '', { years: 'years', weeks: 'weeks', hours: 'hours' });
     expect(component.config.labels).toEqual({
       years: 'years',
       months: 'M',
