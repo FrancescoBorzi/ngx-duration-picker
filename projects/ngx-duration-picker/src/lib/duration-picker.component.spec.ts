@@ -295,6 +295,19 @@ describe('DurationPickerComponent', () => {
     set(component, 1, 0, 0, 0, 0, 0, 0, false, '', 'seconds');
     expect(component.valueInMilliseconds).toEqual(yearInMilliseconds);
   });
+
+  it('specific labels should be overwritten', () => {
+    set(component, 0, 0, 0, 0, 0, 0, 1, false, '', '', { years: 'years', weeks: 'weeks', hours: 'hours' });
+    expect(component.config.labels).toEqual({
+      years: 'years',
+      months: 'M',
+      weeks: 'weeks',
+      days: 'D',
+      hours: 'hours',
+      minutes: 'M',
+      seconds: 'S',
+    });
+  });
 });
 
 function set(
@@ -309,6 +322,7 @@ function set(
   negative = false,
   previewFormat = 'ISO',
   customOutputFormat = 'ISO',
+  labels = {},
 ) {
   component.years = years;
   component.months = months;
@@ -321,4 +335,14 @@ function set(
   component.negative = negative;
   component.config.previewFormat = previewFormat;
   component.config.customOutputFormat = customOutputFormat;
+  component.config.labels = {
+    years: 'Y',
+    months: 'M',
+    weeks: 'W',
+    days: 'D',
+    hours: 'H',
+    minutes: 'M',
+    seconds: 'S',
+    ...labels,
+  };
 }

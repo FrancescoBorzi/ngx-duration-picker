@@ -102,6 +102,26 @@ Chosen value will be emitted by `customOutput`.
 #### showLetters
 Boolean, default `true`. Shows the letters on top (Y, M, W, D, H, M, S)
 
+#### labels
+Object, accepting labels that should be shown above the fields instead of default letters (`showLetters` has to be set to true).
+
+Available fields (with default labels):
+- years (`Y`)
+- months (`M`)
+- weeks (`W`)
+- days (`D`)
+- hours (`H`)
+- minutes (`M`)
+- seconds (`S`)
+
+Example object which is overwriting `weeks` and `hours` properties:
+```angular2
+{
+    weeks: 'tyg',
+    hours: 'godz'
+}
+```
+
 #### showYears
 Boolean, default `true`. Shows the years, when hidden it will be always considered as 0.
 

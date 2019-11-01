@@ -10,11 +10,15 @@ export class AppComponent implements OnInit {
 
   myValue;
   mySecondValue;
+  myThirdValue;
   myNegativeValue;
   showNegative = true;
   previewFormat = '{{Y}} years, {{M}} months, {{W}} weeks, {{D}} days, {{h}} hours, {{m}} minutes, {{s}} seconds';
   disabled = false;
   form: FormGroup;
+  yearsLabel = 'years';
+  weeksLabel = 'weeks';
+  hoursLabel = 'hours';
 
   ngOnInit() {
     this.form = new FormGroup({

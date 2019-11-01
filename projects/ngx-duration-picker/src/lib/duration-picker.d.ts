@@ -13,4 +13,13 @@ export interface DurationPickerOptions {
   zeroValue: string | null;
   previewFormat: string;
   customOutputFormat: string;
+  labels: {
+    years?: string;
+    months?: string;
+    weeks?: string;
+    days?: string;
+    hours?: string;
+    minutes?: string;
+    seconds?: string;
+  };
 }
