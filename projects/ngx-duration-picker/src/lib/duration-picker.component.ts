@@ -149,13 +149,15 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
   }
 
   get valueInSeconds() {
-    return this.seconds +
+    return (this.negative ? -1 : 1) * (
+      this.seconds +
       this.minutes * 60 +
       this.hours * 3600 +
       this.days * 86400 +
       this.weeks * 6048000 +
       this.months * 25920000 +
-      this.years * 315360000;
+      this.years * 315360000
+    );
   }
 
   get valueInMilliseconds() {
