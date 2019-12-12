@@ -296,6 +296,15 @@ describe('DurationPickerComponent', () => {
     expect(component.valueInMilliseconds).toEqual(yearInMilliseconds);
   });
 
+  it('should return correct valueInSeconds and valueInMilliseconds for negative values', () => {
+    const hourInSeconds = 3600;
+    const hourInMilliseconds = 3600000;
+
+    set(component, 0, 0, 0, 0, 1, 0, 0, true, '', 'seconds');
+    expect(component.valueInSeconds).toEqual(-hourInSeconds);
+    expect(component.valueInMilliseconds).toEqual(-hourInMilliseconds);
+  });
+
   it('specific labels should be overwritten', () => {
     set(component, 0, 0, 0, 0, 0, 0, 1, false, '', '', { years: 'years', weeks: 'weeks', hours: 'hours' });
     expect(component.config.labels).toEqual({
