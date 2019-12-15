@@ -317,6 +317,19 @@ describe('DurationPickerComponent', () => {
       seconds: 'S',
     });
   });
+
+  it('incorrect unitSteps should be overwritten with default', () => {
+    set(component, 0, 0, 0, 0, 0, 0, 0, false, '', '', {}, {years: -5, weeks: 4, hours: 0, seconds: 3});
+    expect(component.config.unitSteps).toEqual({
+      years: 1,
+      months: 1,
+      weeks: 4,
+      days: 1,
+      hours: 1,
+      minutes: 1,
+      seconds: 3,
+    });
+  });
 });
 
 function set(
@@ -332,7 +345,16 @@ function set(
   previewFormat = 'ISO',
   customOutputFormat = 'ISO',
   labels = {},
+  unitSteps = {},
 ) {
+  component.options = {
+    ...component.config,
+    previewFormat,
+    customOutputFormat,
+    labels,
+    unitSteps,
+    showNegative: negative,
+  };
   component.years = years;
   component.months = months;
   component.weeks = weeks;
@@ -340,18 +362,5 @@ function set(
   component.hours = hours;
   component.minutes = minutes;
   component.seconds = seconds;
-  component.config.showNegative = negative;
   component.negative = negative;
-  component.config.previewFormat = previewFormat;
-  component.config.customOutputFormat = customOutputFormat;
-  component.config.labels = {
-    years: 'Y',
-    months: 'M',
-    weeks: 'W',
-    days: 'D',
-    hours: 'H',
-    minutes: 'M',
-    seconds: 'S',
-    ...labels,
-  };
 }

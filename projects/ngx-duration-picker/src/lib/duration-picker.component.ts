@@ -18,7 +18,7 @@ import { DurationPickerOptions } from './duration-picker';
 export class DurationPickerComponent implements OnInit, ControlValueAccessor {
 
   @Input() set options(options) {
-    this.attachChanges(options);
+    this.attachChanges(this.validateOptions(options));
   }
 
   private _value: string;
@@ -82,6 +82,15 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
       hours: 'H',
       minutes: 'M',
       seconds: 'S',
+    },
+    unitSteps: {
+      years: 1,
+      months: 1,
+      weeks: 1,
+      days: 1,
+      hours: 1,
+      minutes: 1,
+      seconds: 1,
     },
   };
 
@@ -311,5 +320,19 @@ export class DurationPickerComponent implements OnInit, ControlValueAccessor {
         }
       }
     });
+  }
+
+  validateOptions(options: any): any {
+    const validatedOptions: any = {...options};
+
+    if (typeof options.unitSteps === 'object' && Object.values(options.unitSteps).some((unitStep: number) => unitStep <= 0)) {
+      console.warn('Use positive values for unit steps');
+      validatedOptions.unitSteps = Object.keys(options.unitSteps).reduce((steps, unit) => {
+        steps[unit] = options.unitSteps[unit] > 0 ? options.unitSteps[unit] : 1;
+        return steps;
+      }, {});
+    }
+
+    return validatedOptions;
   }
 }

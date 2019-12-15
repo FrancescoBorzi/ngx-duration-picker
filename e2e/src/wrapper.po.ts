@@ -42,6 +42,9 @@ import {
   DP_YEARS_LABEL_INPUT,
   DP_WEEKS_LABEL_INPUT,
   DP_HOURS_LABEL_INPUT,
+  DP_YEARS_STEPS_INPUT,
+  DP_WEEKS_STEPS_INPUT,
+  DP_HOURS_STEPS_INPUT,
 } from './constants';
 
 export class WrapperPageObject {
@@ -95,6 +98,9 @@ export class WrapperPageObject {
   dpYearsLabelInput: ElementFinder;
   dpWeeksLabelInput: ElementFinder;
   dpHoursLabelInput: ElementFinder;
+  dpYearsStepsInput: ElementFinder;
+  dpWeeksStepsInput: ElementFinder;
+  dpHoursStepsInput: ElementFinder;
 
   constructor(wrapperSelector: string) {
     this.wrapper = $(wrapperSelector);
@@ -110,6 +116,9 @@ export class WrapperPageObject {
     this.dpYearsLabelInput = this.wrapper.$(DP_YEARS_LABEL_INPUT);
     this.dpWeeksLabelInput = this.wrapper.$(DP_WEEKS_LABEL_INPUT);
     this.dpHoursLabelInput = this.wrapper.$(DP_HOURS_LABEL_INPUT);
+    this.dpYearsStepsInput = this.wrapper.$(DP_YEARS_STEPS_INPUT);
+    this.dpWeeksStepsInput = this.wrapper.$(DP_WEEKS_STEPS_INPUT);
+    this.dpHoursStepsInput = this.wrapper.$(DP_HOURS_STEPS_INPUT);
 
     this.dpYearsArrowUp = this.durationPicker.$(DP_YEARS_ARROW_UP);
     this.dpMonthsArrowUp = this.durationPicker.$(DP_MONTHS_ARROW_UP);

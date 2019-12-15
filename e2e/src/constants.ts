@@ -5,6 +5,7 @@ export const REACTIVE_FORM_WRAPPER = '#reactive-form';
 export const NEGATIVE_DURATION_WRAPPER = '#negative-duration';
 export const PREVIEW_FORMAT_WRAPPER = '#preview-format';
 export const CONFIGURABLE_LABELS_WRAPPER = '#configurable-labels';
+export const CONFIGURABLE_STEPS_WRAPPER = '#configurable-steps';
 
 export const DURATION_PICKER = 'ngx-duration-picker';
 
@@ -54,6 +55,9 @@ export const PREVIEW_FORMAT_INPUT = '#preview-format-input';
 export const DP_YEARS_LABEL_INPUT = '#years-label-input';
 export const DP_WEEKS_LABEL_INPUT = '#weeks-label-input';
 export const DP_HOURS_LABEL_INPUT = '#hours-label-input';
+export const DP_YEARS_STEPS_INPUT = '#years-steps-input';
+export const DP_WEEKS_STEPS_INPUT = '#weeks-steps-input';
+export const DP_HOURS_STEPS_INPUT = '#hours-steps-input';
 
 /* Texts */
 export const TOUCHED_TEXT = 'Touched';
