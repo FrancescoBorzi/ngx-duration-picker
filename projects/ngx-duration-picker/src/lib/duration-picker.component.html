@@ -16,43 +16,43 @@
     <td *ngIf="config.showNegative"></td>
 
     <td *ngIf="config.showYears">
-      <a class="btn btn-link" id="dp-years-up" (click)="years = years + 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-years-up" (click)="years = years + config.unitSteps.years" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-up"></span>
       </a>
     </td>
 
     <td *ngIf="config.showMonths">
-      <a class="btn btn-link" id="dp-months-up" (click)="months = months + 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-months-up" (click)="months = months + config.unitSteps.months" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-up"></span>
       </a>
     </td>
 
     <td *ngIf="config.showWeeks">
-      <a class="btn btn-link" id="dp-weeks-up" (click)="weeks = weeks + 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-weeks-up" (click)="weeks = weeks + config.unitSteps.weeks" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-up"></span>
       </a>
     </td>
 
     <td *ngIf="config.showDays">
-      <a class="btn btn-link" id="dp-days-up" (click)="days = days + 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-days-up" (click)="days = days + config.unitSteps.days" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-up"></span>
       </a>
     </td>
 
     <td *ngIf="config.showHours">
-      <a class="btn btn-link" id="dp-hours-up" (click)="hours = hours + 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-hours-up" (click)="hours = hours + config.unitSteps.hours" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-up"></span>
       </a>
     </td>
 
     <td *ngIf="config.showMinutes">
-      <a class="btn btn-link" id="dp-minutes-up" (click)="minutes = minutes + 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-minutes-up" (click)="minutes = minutes + config.unitSteps.minutes" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-up"></span>
       </a>
     </td>
 
     <td *ngIf="config.showSeconds">
-      <a class="btn btn-link" id="dp-seconds-up" (click)="seconds = seconds + 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-seconds-up" (click)="seconds = seconds + config.unitSteps.seconds" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-up"></span>
       </a>
     </td>
@@ -108,43 +108,43 @@
     <td *ngIf="config.showNegative"></td>
 
     <td *ngIf="config.showYears">
-      <a class="btn btn-link" id="dp-years-down" (click)="years = years - 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-years-down" (click)="years = years - config.unitSteps.years" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-down"></span>
       </a>
     </td>
 
     <td *ngIf="config.showMonths">
-      <a class="btn btn-link" id="dp-months-down" (click)="months = months - 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-months-down" (click)="months = months - config.unitSteps.months" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-down"></span>
       </a>
     </td>
 
     <td *ngIf="config.showWeeks">
-      <a class="btn btn-link" id="dp-weeks-down" (click)="weeks = weeks - 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-weeks-down" (click)="weeks = weeks - config.unitSteps.weeks" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-down"></span>
       </a>
     </td>
 
     <td *ngIf="config.showDays">
-      <a class="btn btn-link" id="dp-days-down" (click)="days = days - 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-days-down" (click)="days = days - config.unitSteps.days" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-down"></span>
       </a>
     </td>
 
     <td *ngIf="config.showHours">
-      <a class="btn btn-link" id="dp-hours-down" (click)="hours = hours - 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-hours-down" (click)="hours = hours - config.unitSteps.hours" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-down"></span>
       </a>
     </td>
 
     <td *ngIf="config.showMinutes">
-      <a class="btn btn-link" id="dp-minutes-down" (click)="minutes = minutes - 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-minutes-down" (click)="minutes = minutes - config.unitSteps.minutes" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-down"></span>
       </a>
     </td>
 
     <td *ngIf="config.showSeconds">
-      <a class="btn btn-link" id="dp-seconds-down" (click)="seconds = seconds - 1" [ngClass]="{ 'disabled': disabled }">
+      <a class="btn btn-link" id="dp-seconds-down" (click)="seconds = seconds - config.unitSteps.seconds" [ngClass]="{ 'disabled': disabled }">
         <span class="bs-chevron bs-chevron-down"></span>
       </a>
     </td>
