@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   myValue;
   mySecondValue;
   myThirdValue;
+  myFourthValue;
   myNegativeValue;
   showNegative = true;
   previewFormat = '{{Y}} years, {{M}} months, {{W}} weeks, {{D}} days, {{h}} hours, {{m}} minutes, {{s}} seconds';
@@ -19,6 +20,9 @@ export class AppComponent implements OnInit {
   yearsLabel = 'years';
   weeksLabel = 'weeks';
   hoursLabel = 'hours';
+  yearsStep = 2;
+  weeksStep = 3;
+  hoursStep = 4;
 
   ngOnInit() {
     this.form = new FormGroup({

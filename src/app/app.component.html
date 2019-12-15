@@ -194,4 +194,48 @@
       </div>
     </div>
   </div>
+
+  <hr>
+
+  <div id="configurable-steps">
+    <div class="row">
+      <div class="col">
+        <div class="h1">Configurable Steps</div>
+
+        <ngx-duration-picker [(value)]="myFourthValue"
+                             [options]="{ unitSteps: { years: yearsStep, weeks: weeksStep, hours: hoursStep } }"
+        ></ngx-duration-picker>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="output alert alert-info">
+          {{ myFourthValue }}
+        </div>
+      </div>
+      <div class="col-8">
+        <button
+          (click)="myFourthValue = 'P7Y3M2W4DT1H3M5S'"
+          class="set-value btn btn-info"
+        >
+          Set to value 'P7Y3M2W4DT1H3M5S'
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="years-steps-input">Years steps:</label>
+        <input id="years-steps-input" [(ngModel)]="yearsStep" type="number"/>
+      </div>
+      <div class="col">
+        <label for="weeks-steps-input">Weeks steps:</label>
+        <input id="weeks-steps-input" [(ngModel)]="weeksStep" type="number"/>
+      </div>
+      <div class="col">
+        <label for="hours-steps-input">Hours steps:</label>
+        <input id="hours-steps-input" [(ngModel)]="hoursStep" type="number"/>
+      </div>
+    </div>
+  </div>
 </div>

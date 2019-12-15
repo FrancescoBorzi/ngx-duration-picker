@@ -1,7 +1,6 @@
 import { WrapperPageObject } from './wrapper.po';
 import { CONFIGURABLE_LABELS_WRAPPER } from './constants';
 
-
 /* Specific checks performed against the "Configurable Labels" duration picker */
 describe('Configurable Labels (specific checks)', () => {
   const INITIAL_YEARS_LABEL = 'years';
