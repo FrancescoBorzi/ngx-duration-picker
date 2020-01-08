@@ -122,6 +122,26 @@ Example object which is overwriting `weeks` and `hours` properties:
 }
 ```
 
+#### unitSteps
+Object, accepting numbers representing increment/decrement step size for each unit. Non-positive values will be replaced with default value: 1.
+
+Available fields:
+- years
+- months
+- weeks
+- days
+- hours
+- minutes
+- seconds
+
+Example object which is overwriting `weeks` and `hours` properties:
+```angular2
+{
+    weeks: 4,
+    hours: 2
+}
+```
+
 #### showYears
 Boolean, default `true`. Shows the years, when hidden it will be always considered as 0.
 
