@@ -27,7 +27,7 @@
     "@angular/core": "8.2.14",
     "@angular/forms": "8.2.14",
     "@angular/platform-browser": "8.2.14",
-    "@angular/platform-browser-dynamic": "8.2.14",
+    "@angular/platform-browser-dynamic": "10.0.10",
     "@angular/router": "8.2.14",
     "rxjs": "6.6.0",
     "tslib": "2.0.0",
