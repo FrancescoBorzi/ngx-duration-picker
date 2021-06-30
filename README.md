@@ -48,6 +48,8 @@ export class AppModule { }
 - Unit tests are located in `projects/ngx-duration-picker/src/lib/*.spec.ts` and you can run them using `npm run test:unit`
 - Integration tests are located in `src/app/integration-tests/*.spec.ts` and you can run them using `npm run test:integration`
 
+The default browser is Chrome.  You can also append `:ci` to run them in Headless mode, and `:ci:firefox` to run them with Firefox.
+
 ## Usage
 
 ```<ngx-duration-picker [(value)]="myDuration"></ngx-duration-picker>```
