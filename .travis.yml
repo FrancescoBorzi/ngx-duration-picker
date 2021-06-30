@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-- "10"
-dist: xenial
+- "14"
+dist: bionic
 sudo: required
 branches:
   only:
@@ -11,5 +11,5 @@ before_script:
 script:
 - npm run lint
 - npm run package
-- npm run test_lib_ci
-- npm run e2e_ci
+- npm run test:unit:ci
+- npm run test:integration:ci
