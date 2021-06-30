@@ -13,7 +13,7 @@
     "test:integration:ci:firefox": "ng test --watch=false --no-progress --browsers=FirefoxHeadless",
     "test:unit:ci:firefox": "ng test ngx-duration-picker --watch=false --no-progress --browsers=FirefoxHeadless",
     "lint": "ng lint",
-    "build_lib": "ng build ngx-duration-picker",
+    "build_lib": "ng build ngx-duration-picker --configuration production",
     "copy_license": "cp ./LICENSE ./dist/ngx-duration-picker/",
     "copy_readme": "cp ./README.md ./dist/ngx-duration-picker/",
     "copy_files": "npm run copy_license && npm run copy_readme",
