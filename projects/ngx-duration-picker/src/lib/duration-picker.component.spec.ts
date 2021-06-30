@@ -4,8 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { DurationPickerComponent } from './duration-picker.component';
 
 describe('DurationPickerComponent', () => {
-  let component: DurationPickerComponent;
-  let fixture: ComponentFixture<DurationPickerComponent>;
 
   const myFunc = () => 'something';
 
@@ -17,17 +15,21 @@ describe('DurationPickerComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(DurationPickerComponent);
-    component = fixture.componentInstance;
+  const setup = () => {
+    const fixture = TestBed.createComponent(DurationPickerComponent);
+    const component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+
+    return { fixture, component };
+  };
 
   it('should create', () => {
+    const { component } = setup();
     expect(component).toBeTruthy();
   });
 
   it('generate() should correctly generate the duration values', () => {
+    const { component } = setup();
     set(component, 1, 2, 3, 4, 5, 6, 7);
     expect(component.generate()).toBe('P1Y2M3W4DT5H6M7S');
 
@@ -60,6 +62,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('generate() should correctly generate the negative duration values', () => {
+    const { component } = setup();
     set(component, 1, 2, 3, 4, 5, 6, 7, true);
     expect(component.generate()).toBe('-P1Y2M3W4DT5H6M7S');
 
@@ -92,6 +95,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('generate() should correctly set the zero value according to the configuration', () => {
+    const { component } = setup();
     set(component, 0, 0, 0, 0, 0, 0, 0);
 
     expect(component.generate()).toBe('PT0S');
@@ -108,6 +112,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('setting the options should correctly affect the configuration', () => {
+    const { component } = setup();
     component.options = { showWeeks: false, showSeconds: true, someNonExistingProperty: 'test' };
 
     expect(component.config.showWeeks).toBe(false);
@@ -115,6 +120,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('parse() should correctly parse the ISO8601 string', () => {
+    const { component } = setup();
     component.value = 'P1Y2M3W4DT5H6M7S';
 
     component.parse();
@@ -143,6 +149,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('parse() should do nothing if the value is null', () => {
+    const { component } = setup();
     component.value = null;
 
     component.parse();
@@ -157,6 +164,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('parse() output a console error if the provided value has a bad format', () => {
+    const { component } = setup();
     const badValue = 'this is not a good value';
     const spyError = spyOn(console, 'error');
     component.value = badValue;
@@ -174,6 +182,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('setDisabledState() should correctly change the disabled status', () => {
+    const { component } = setup();
     component.setDisabledState(true);
     expect(component.disabled).toBe(true);
 
@@ -182,6 +191,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('registerOnChange(fn) should correctly set the onChange function', () => {
+    const { component } = setup();
     component.onChange = null;
 
     component.registerOnChange(myFunc);
@@ -190,6 +200,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('registerOnTouched(fn) should correctly set the onTouched function', () => {
+    const { component } = setup();
     component.onTouched = null;
 
     component.registerOnTouched(myFunc);
@@ -198,6 +209,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('writeValue(value) should change the value when the new value is NOT null', () => {
+    const { component } = setup();
     component.value = 'old value';
 
     component.writeValue('new value');
@@ -206,6 +218,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('writeValue(value) should NOT change the value if the new value is null', () => {
+    const { component } = setup();
     component.value = 'old value';
 
     component.writeValue(null);
@@ -214,6 +227,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('preview should return proper string', () => {
+    const { component } = setup();
     const previewFormat = '{{h}} hours : {{m}} minutes : {{s}} seconds';
     const hours = 5;
     const minutes = 32;
@@ -225,6 +239,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('preview should return ISO value as string when provided previewFormat is empty string', () => {
+    const { component } = setup();
     const previewFormat = '';
     const hours = 5;
     const minutes = 32;
@@ -236,6 +251,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('valueInSeconds should return correct value for each duration unit', () => {
+    const { component } = setup();
     const minuteInSeconds = 60;
     const hourInSeconds = 3600;
     const dayInSeconds = 86400;
@@ -266,6 +282,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('valueInMilliseconds should return correct value for each duration unit', () => {
+    const { component } = setup();
     const secondInMilliseconds = 1000;
     const minuteInMilliseconds = 60000;
     const hourInMilliseconds = 3600000;
@@ -297,6 +314,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('should return correct valueInSeconds and valueInMilliseconds for negative values', () => {
+    const { component } = setup();
     const hourInSeconds = 3600;
     const hourInMilliseconds = 3600000;
 
@@ -306,6 +324,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('specific labels should be overwritten', () => {
+    const { component } = setup();
     set(component, 0, 0, 0, 0, 0, 0, 1, false, '', '', { years: 'years', weeks: 'weeks', hours: 'hours' });
     expect(component.config.labels).toEqual({
       years: 'years',
@@ -319,6 +338,7 @@ describe('DurationPickerComponent', () => {
   });
 
   it('incorrect unitSteps should be overwritten with default', () => {
+    const { component } = setup();
     set(component, 0, 0, 0, 0, 0, 0, 0, false, '', '', {}, {years: -5, weeks: 4, hours: 0, seconds: 3});
     expect(component.config.unitSteps).toEqual({
       years: 1,

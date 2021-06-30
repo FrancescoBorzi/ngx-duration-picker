@@ -37,9 +37,16 @@ export class AppModule { }
 
 ## Local development
 
+### Run the application
+
 - On one terminal tab run `ng build ngx-duration-picker --watch`. This will build the library sources (`projects/ngx-duration-picker/*`) and watch for changes.
 
 - On another terminal tab run `ng serve` to serve the demo app (`src/*`) and play with it.
+
+### Run the tests
+
+- Unit tests are located in `projects/ngx-duration-picker/src/lib/*.spec.ts` and you can run them using `npm run test:unit`
+- Integration tests are located in `src/app/integration-tests/*.spec.ts` and you can run them using `npm run test:integration`
 
 ## Usage
 
