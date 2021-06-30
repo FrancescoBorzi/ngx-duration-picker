@@ -12,7 +12,7 @@ A reusable [Angular](https://angular.io/) duration-picker component that works w
 
 Requires [Bootstrap](https://getbootstrap.com/), css only (no Bootstrap JS or jQuery needed).
 
-**[DEMO](https://embed.plnkr.co/1dAIGrGqbcfrNVqs4WwW/)**
+**[DEMO](https://francescoborzi.github.io/ngx-duration-picker/index.html)**
 
 ## Installation
 
@@ -34,21 +34,6 @@ Requires [Bootstrap](https://getbootstrap.com/), css only (no Bootstrap JS or jQ
 })
 export class AppModule { }
 ```
-
-## Local development
-
-### Run the application
-
-- On one terminal tab run `ng build ngx-duration-picker --watch`. This will build the library sources (`projects/ngx-duration-picker/*`) and watch for changes.
-
-- On another terminal tab run `ng serve` to serve the demo app (`src/*`) and play with it.
-
-### Run the tests
-
-- Unit tests are located in `projects/ngx-duration-picker/src/lib/*.spec.ts` and you can run them using `npm run test:unit`
-- Integration tests are located in `src/app/integration-tests/*.spec.ts` and you can run them using `npm run test:integration`
-
-The default browser is Chrome.  You can also append `:ci` to run them in Headless mode, and `:ci:firefox` to run them with Firefox.
 
 ## Usage
 
@@ -171,3 +156,22 @@ Boolean, default `true`. Shows the minutes, when hidden it will be always consid
 
 #### showSeconds
 Boolean, default `true`. Shows the seconds, when hidden it will be always considered as 0.
+
+## Local development
+
+### Run the application
+
+- On one terminal tab run `ng build ngx-duration-picker --watch`. This will build the library sources (`projects/ngx-duration-picker/*`) and watch for changes.
+
+- On another terminal tab run `ng serve` to serve the demo app (`src/*`) and play with it.
+
+### Run the tests
+
+- Unit tests are located in `projects/ngx-duration-picker/src/lib/*.spec.ts` and you can run them using `npm run test:unit`
+- Integration tests are located in `src/app/integration-tests/*.spec.ts` and you can run them using `npm run test:integration`
+
+The default browser is Chrome.  You can also append `:ci` to run them in Headless mode, and `:ci:firefox` to run them with Firefox.
+
+### Update Demo website (GitHub pages)
+
+- Run `npm run build:demo` and commit the `docs/` directory

@@ -2,7 +2,17 @@
   <div id="plain-binding">
     <div class="row">
       <div class="col">
-        <div class="h1">Plain binding</div>
+        <h1>ngx-duration-picker</h1>
+        <p>This is the demo page for <a href="https://github.com/FrancescoBorzi/ngx-duration-picker">ngx-duration-picker</a>.</p>
+        <p>Check the <a
+        href="https://github.com/FrancescoBorzi/ngx-duration-picker#readme">README</a> for the installation and usage guide.</p>
+        <p>This is an open-source software created by <strong>Francesco Borzi'</strong>, consider <a href="https://www.paypal.com/paypalme/francesco92dev">donating</a>.</p>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="h2">Plain binding</div>
 
         <ngx-duration-picker [(value)]="myValue" [disabled]="disabled"></ngx-duration-picker>
 
@@ -33,7 +43,7 @@
   <div id="reactive-form">
     <div class="row">
       <div class="col">
-        <div class="h1">Reactive Form</div>
+        <div class="h2">Reactive Form</div>
         <form [formGroup]="form">
           <ngx-duration-picker [formControlName]="'myDurationControl'"></ngx-duration-picker>
         </form>
@@ -78,7 +88,7 @@
   <div id="negative-duration">
     <div class="row">
       <div class="col">
-        <div class="h1">Negative Duration</div>
+        <div class="h2">Negative Duration</div>
 
         <ngx-duration-picker [(value)]="myNegativeValue"
                              [options]="{ showNegative: showNegative }"
@@ -120,7 +130,7 @@
   <div id="preview-format">
     <div class="row">
       <div class="col">
-        <div class="h1">Preview Format</div>
+        <div class="h2">Preview Format</div>
 
         <ngx-duration-picker [(value)]="mySecondValue"
                              [options]="{ previewFormat: previewFormat }"
@@ -156,7 +166,7 @@
   <div id="configurable-labels">
     <div class="row">
       <div class="col">
-        <div class="h1">Configurable Labels</div>
+        <div class="h2">Configurable Labels</div>
 
         <ngx-duration-picker [(value)]="myThirdValue"
                              [options]="{ labels: { years: yearsLabel, weeks: weeksLabel, hours: hoursLabel } }"
@@ -200,7 +210,7 @@
   <div id="configurable-steps">
     <div class="row">
       <div class="col">
-        <div class="h1">Configurable Steps</div>
+        <div class="h2">Configurable Steps</div>
 
         <ngx-duration-picker [(value)]="myFourthValue"
                              [options]="{ unitSteps: { years: yearsStep, weeks: weeksStep, hours: hoursStep } }"
