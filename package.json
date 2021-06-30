@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:demo": "npm run build_lib && ng build --configuration production",
+    "build:demo": "npm run build_lib && ng build --configuration production --base-href .",
     "test:integration": "ng test",
     "test:unit": "ng test ngx-duration-picker",
     "test:integration:ci": "ng test --watch=false --no-progress --browsers=ChromeHeadlessCI",
