@@ -40,11 +40,11 @@ jobs:
           max_attempts: 3
           command: npm run test:unit:ci
           timeout_minutes: 20
+      - name: Package Build
+        run: npm run package
       - name: Integration Tests
         uses: nick-invision/retry@v2
         with:
           max_attempts: 3
           command: npm run test:integration:ci
           timeout_minutes: 20
-      - name: Package Build
-        run: npm run package
