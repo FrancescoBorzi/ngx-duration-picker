@@ -1,7 +1,7 @@
 import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { DurationPickerOptions } from './duration-picker';
+import { DurationPickerOptions } from './duration-picker.model';
 
 @Component({
   selector: 'ngx-duration-picker',  // tslint:disable-line:component-selector

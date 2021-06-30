@@ -16,6 +16,9 @@
     "url": "https://github.com/FrancescoBorzi/ngx-duration-picker/issues"
   },
   "license": "MIT",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "peerDependencies": {
     "@angular/common": "*",
     "@angular/core": "*"
