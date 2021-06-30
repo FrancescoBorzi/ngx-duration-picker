@@ -12,7 +12,9 @@ A reusable [Angular](https://angular.io/) duration-picker component that works w
 
 Requires [Bootstrap](https://getbootstrap.com/), css only (no Bootstrap JS or jQuery needed).
 
-**[DEMO](https://francescoborzi.github.io/ngx-duration-picker/index.html)**
+## Live demo
+
+You can check a live demo of this library and all its features **[here](https://francescoborzi.github.io/ngx-duration-picker/index.html)**
 
 ## Installation
 
@@ -175,3 +177,8 @@ The default browser is Chrome.  You can also append `:ci` to run them in Headles
 ### Update Demo website (GitHub pages)
 
 - Run `npm run build:demo` and commit the `docs/` directory
+
+
+## Donate
+
+You can [support me with a donation](https://www.paypal.com/paypalme/francesco92dev).
