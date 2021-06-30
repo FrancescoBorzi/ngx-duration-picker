@@ -40,14 +40,6 @@ jobs:
           max_attempts: 3
           command: npm run test:unit:ci
           timeout_minutes: 20
-      - name: Package Build
-        run: npm run package
-      - name: Integration Tests (Chrome)
-        uses: nick-invision/retry@v2
-        with:
-          max_attempts: 3
-          command: npm run test:integration:ci
-          timeout_minutes: 20
       - name: Unit Tests (Firefox)
         uses: nick-invision/retry@v2
         with:
@@ -56,6 +48,12 @@ jobs:
           timeout_minutes: 20
       - name: Package Build
         run: npm run package
+      - name: Integration Tests (Chrome)
+        uses: nick-invision/retry@v2
+        with:
+          max_attempts: 3
+          command: npm run test:integration:ci
+          timeout_minutes: 20
       - name: Integration Tests (Firefox)
         uses: nick-invision/retry@v2
         with:
